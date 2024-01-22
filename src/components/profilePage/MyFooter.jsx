@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ButtonLink from "./Pippo/ButtonLink";
+
 import { GearFill, QuestionCircleFill, ShieldShaded } from "react-bootstrap-icons";
+import ButtonLink from "./ButtonLink";
 
 const MyFooter = () => {
   return (

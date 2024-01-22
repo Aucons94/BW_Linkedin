@@ -17,6 +17,10 @@ const Preview = () => {
 						make up the bulk of the card's content.
 					</Card.Text>
 					<Button variant="primary">Disponibile per</Button>
+					<Button variant="outline-primary mx-2">
+						Aggiungi sezione del profilo
+					</Button>
+					<Button variant="outline-secondary">Altro</Button>
 				</Card.Body>
 			</Card>
 		</Container>

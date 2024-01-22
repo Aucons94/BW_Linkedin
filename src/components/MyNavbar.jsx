@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setNavbarInfo } from "../redux/actions";
+import ButtonLink from "./profilePage/ButtonLink";
 
 function MyNavbar() {
 	const { InfoProfilo } = useSelector((state) => state.info);
@@ -110,11 +111,10 @@ function MyNavbar() {
 										</Col>
 										<Col xs={8}></Col>
 									</Row>
-									<NavLink id="visualizzaprofilo">
-										<span className="p-1">
-											Visualizza il tuo profilo
-										</span>
-									</NavLink>
+
+									<ButtonLink variant="outline-primary">
+										Visualizza il tuo profilo
+									</ButtonLink>
 								</div>
 							</NavDropdown.Item>
 							<NavDropdown.Item href="#action/3.2">

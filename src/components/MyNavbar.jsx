@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setNavbarInfo } from "../redux/actions";
-import ButtonLink from "./profilePage/ButtonLink";
+import ButtonLink from "./profilePage/utility/ButtonLink";
 
 function MyNavbar() {
 	const { InfoProfilo } = useSelector((state) => state.info);

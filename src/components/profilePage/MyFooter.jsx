@@ -6,7 +6,7 @@ import {
 	QuestionCircleFill,
 	ShieldShaded,
 } from "react-bootstrap-icons";
-import ButtonLink from "./ButtonLink";
+import ButtonLink from "./utility/ButtonLink";
 
 const MyFooter = () => {
 	return (

@@ -6,7 +6,7 @@ const CentralSection = () => {
 	return (
 		<Container
 			className="d-flex align-items-start gap-2"
-			style={{ maxWidth: "800px" }}>
+			style={{ maxWidth: "1000px" }}>
 			<Preview />
 			{/* sezione con img profilo, nome, domicilio etc */}
 			<SidebarProfileRight />

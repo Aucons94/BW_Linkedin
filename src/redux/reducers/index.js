@@ -1,10 +1,8 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import myProfileInfoReducers from "../reducers/profileReducers";
+import profileReducers from "./profileReducers";
+import { combineReducers } from "redux";
 
-const rootReducer = configureStore({
-  reducer: combineReducers({
-    info: myProfileInfoReducers,
-  }),
+const rootReducer = combineReducers({
+	info: profileReducers,
 });
 
 export default rootReducer;

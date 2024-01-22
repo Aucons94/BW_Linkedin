@@ -1,29 +1,4 @@
-export const storeHome = (home) => ({
-	type: "STORE_HOME",
-	payload: home,
+export const setNavbarInfo = (data) => ({
+	type: "NAVBAR_INFO",
+	payload: data,
 });
-export const storeAlbum = (album) => ({
-	type: "STORE_ALBUM",
-	payload: album,
-});
-export const storeTrackPlaying = (trackPlaying) => ({
-	type: "STORE_TRACK_PLAYING",
-	payload: trackPlaying,
-});
-export const setIsPlaying = (boolean) => ({
-	type: "SET_IS_PLAYING",
-	payload: { boolean },
-});
-
-export const setLikedSong = (track) => {
-	return {
-		type: "SET_LIKED_SONG",
-		payload: track,
-	};
-};
-export const removeLikedSong = (trackId) => {
-	return {
-		type: "REMOVE_LIKED_SONG",
-		payload: trackId,
-	};
-};

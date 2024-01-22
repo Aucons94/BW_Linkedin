@@ -4,7 +4,8 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Form, InputGroup } from "react-bootstrap";
+import { Col, Form, InputGroup, NavLink, Row } from "react-bootstrap";
+import { faBriefcase, faHome, faSearch, faUserFriends, faBell, faCommentDots } from "@fortawesome/free-solid-svg-icons";
 
 function MyNavbar() {
   return (
@@ -15,17 +16,47 @@ function MyNavbar() {
         </Navbar.Brand>
         <InputGroup>
           <InputGroup.Text>
-            <i class="bi bi-search text-primary"></i>
+            <FontAwesomeIcon icon={faSearch} />
           </InputGroup.Text>
           <Form.Control type="text" placeholder="Cerca" className=" mr-sm-2" />
         </InputGroup>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <Nav.Link href="#home" className="text-center">
+              <FontAwesomeIcon icon={faHome} />
+              Home
+            </Nav.Link>
+            <Nav.Link href="#rete" className="text-center">
+              <FontAwesomeIcon icon={faUserFriends} />
+              Rete
+            </Nav.Link>
+            <Nav.Link href="#lavoro" className="text-center">
+              <FontAwesomeIcon icon={faBriefcase} />
+              Lavoro
+            </Nav.Link>
+            <Nav.Link href="#messaggistica" className="text-center">
+              <FontAwesomeIcon icon={faCommentDots} />
+              Messaggistica
+            </Nav.Link>
+            <Nav.Link href="#link" className="text-center">
+              <FontAwesomeIcon icon={faBell} />
+              Notifiche
+            </Nav.Link>
+            <NavDropdown title="Tu" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">
+                <div>
+                  <Row>
+                    <Col xs={4}>
+                      <img src="" alt="" />
+                    </Col>
+                    <Col xs={8}></Col>
+                  </Row>
+                  <NavLink id="visualizzaprofilo">
+                    <span className="p-1">Visualizza il tuo profilo</span>
+                  </NavLink>
+                </div>
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />

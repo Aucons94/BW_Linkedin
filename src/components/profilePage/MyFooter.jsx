@@ -8,7 +8,7 @@ const MyFooter = () => {
     <footer className="text-secondary">
       <Container>
         <Row>
-          <Col md={8}>
+          <Col md={9}>
             <Row>
               <Col md={4}>
                 <ButtonLink className="footer-small">
@@ -89,32 +89,44 @@ const MyFooter = () => {
               </Col>
               <Col md={6}></Col>
             </Row>
-            <div className="py-3">
+            <div className="pt-3">
               <ButtonLink className="footer-small">
                 <p>LinkedIn Corporation © 2024</p>
               </ButtonLink>
             </div>
           </Col>
-          <Col md={4}>
-            <div className="d-flex">
-              <QuestionCircleFill color="dark" size={20} className="me-3" />
-              <div className="d-flex flex-direction-column g-1">
-                <p>Domande?</p>
-                <p>Visita il nostro centro assistenza.</p>
+          <Col md={3} className="mt-1">
+            <div className="d-flex mb-2">
+              <QuestionCircleFill color="dark" size={20} className="me-3 mt-1" />
+              <div className="d-flex flex-column">
+                <ButtonLink className="footer-right">
+                  <p>Domande?</p>
+                </ButtonLink>
+                <ButtonLink className="footer-small">
+                  <p>Visita il nostro centro assistenza.</p>
+                </ButtonLink>
               </div>
             </div>
-            <div className="d-flex">
-              <GearFill color="dark" size={22} className="me-3" />
-              <div className="d-flex flex-direction-column g-1">
-                <p>Gestisci il tuo account e la tua privacy</p>
-                <p>Vai alle impostazioni</p>
+            <div className="d-flex mb-2">
+              <GearFill color="dark" size={22} className="me-3 mt-1" />
+              <div className="d-flex flex-column">
+                <ButtonLink className="footer-right">
+                  <p>Gestisci il tuo account e la tua privacy</p>
+                </ButtonLink>
+                <ButtonLink className="footer-small">
+                  <p>Vai alle impostazioni</p>
+                </ButtonLink>
               </div>
             </div>
-            <div className="d-flex">
-              <ShieldShaded color="dark" size={23} className="me-3" />
-              <div className="d-flex flex-direction-column g-1">
-                <p>Trasparenza sui contenuti consigliati</p>
-                <p>Scopri di più sui contenuti consigliati.</p>
+            <div className="d-flex mb-2">
+              <ShieldShaded color="dark" size={23} className="me-3 mt-1" />
+              <div className="d-flex flex-column">
+                <ButtonLink className="footer-right">
+                  <p>Trasparenza sui contenuti consigliati</p>
+                </ButtonLink>
+                <ButtonLink className="footer-small">
+                  <p>Scopri di più sui contenuti consigliati.</p>
+                </ButtonLink>
               </div>
             </div>
           </Col>

@@ -6,8 +6,38 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { Col, Form, InputGroup, NavLink, Row } from "react-bootstrap";
 import { faBriefcase, faHome, faSearch, faUserFriends, faBell, faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function MyNavbar() {
+  const InfoProfilo = useSelector((state) => state.info.info);
+  const dispatch = useDispatch();
+
+  const getMyInfo = async () => {
+    try {
+      let response = await fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlNjI4MDYwMGJlMTAwMTgzYTg2YjUiLCJpYXQiOjE3MDU5MjczMTgsImV4cCI6MTcwNzEzNjkxOH0.pDglMvdYjnNomxK6G4zXcsal92m3qQmF2T7fIUx_lzA",
+        },
+      });
+      let data = await response.json();
+      dispatch({
+        type: "NAVBAR_INFO",
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getMyInfo();
+  }, []);
+
   return (
     <Navbar expand="lg" className="bg-white p-0">
       <Container>
@@ -48,7 +78,9 @@ function MyNavbar() {
                 <div>
                   <Row>
                     <Col xs={4}>
-                      <img src="" alt="" />
+                      <Link to="/profile/me">
+                        <img style={{ width: "25px", height: "25px" }} src={InfoProfilo.image} alt="kitten" />{" "}
+                      </Link>
                     </Col>
                     <Col xs={8}></Col>
                   </Row>

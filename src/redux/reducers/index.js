@@ -1,18 +1,10 @@
-// src/reducers/index.js
-import { combineReducers } from "redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import myProfileInfoReducers from "../reducers/profileReducers";
 
-import homeReducer from "./homeReducer";
-import trackPlayingReducer from "./trackPlayingReducer";
-import playerReducer from "./playerReducer";
-import albumReducer from "./albumReducer";
-import likedReducer from "./likedReducer";
-
-const rootReducer = combineReducers({
-	home: homeReducer,
-	album: albumReducer,
-	trackPlaying: trackPlayingReducer,
-	player: playerReducer,
-	likedSongs: likedReducer,
+const rootReducer = configureStore({
+  reducer: combineReducers({
+    info: myProfileInfoReducers,
+  }),
 });
 
 export default rootReducer;

@@ -64,7 +64,7 @@ function MyNavbar({ children }) {
 		<>
 			<Navbar
 				className="p-0 myNavbar flex-nowrap"
-				bg="light"
+				bg="dark"
 				variant="light">
 				<Container>
 					<Navbar.Brand href="">
@@ -131,20 +131,21 @@ function MyNavbar({ children }) {
 						</Nav.Link>
 						<Nav.Link
 							href="#messaggistica"
-							className="text-center px-3 customNavLink">
+							className="text-center px-3 customNavLink terzaIconaVia">
 							<FontAwesomeIcon icon={faCommentDots} />
 							<p className="m-0">Messaggistica</p>
 						</Nav.Link>
 						<Nav.Link
 							href="#link"
-							className="text-center px-3 customNavLink">
+							className="text-center px-3 customNavLink secondaIconaVia">
 							<FontAwesomeIcon icon={faBell} />
 							<p className="m-0">Notifiche</p>
 						</Nav.Link>
 						<NavDropdown
 							title="Tu"
 							id="basic-nav-dropdown"
-							align={end}>
+							align={end}
+							className="primaIconaVia">
 							<div>
 								<Row>
 									<Col xs={4}>
@@ -229,6 +230,98 @@ function MyNavbar({ children }) {
 							align={end}
 							className="dropAppare">
 							<div className="d-flex">
+								<Nav.Link
+									href="#home"
+									className="text-center px-3 customNavLink">
+									<FontAwesomeIcon icon={faHome} />
+									<p className="m-0">Home</p>
+								</Nav.Link>
+								<Nav.Link
+									href="#rete"
+									className="text-center px-3 customNavLink">
+									<FontAwesomeIcon icon={faUserFriends} />
+									<p className="m-0">Rete</p>
+								</Nav.Link>
+								<Nav.Link
+									href="#lavoro"
+									className="text-center px-3 customNavLink">
+									<FontAwesomeIcon icon={faBriefcase} />
+									<p className="m-0">Lavoro</p>
+								</Nav.Link>
+								<Nav.Link
+									href="#messaggistica"
+									className="text-center px-3 customNavLink">
+									<FontAwesomeIcon icon={faCommentDots} />
+									<p className="m-0">Messaggistica</p>
+								</Nav.Link>
+								<Nav.Link
+									href="#link"
+									className="text-center px-3 customNavLink">
+									<FontAwesomeIcon icon={faBell} />
+									<p className="m-0">Notifiche</p>
+								</Nav.Link>
+								<NavDropdown
+									title="Tu"
+									id="basic-nav-dropdown"
+									align={end}>
+									<div>
+										<Row>
+											<Col xs={4}>
+												{InfoProfilo && (
+													<Link to="/profile/me">
+														<img
+															style={{
+																width: "25px",
+																height: "25px",
+															}}
+															src={
+																InfoProfilo.image
+															}
+															alt="kitten"
+														/>
+													</Link>
+												)}
+											</Col>
+											<Col xs={8}></Col>
+										</Row>
+
+										<div className="text-center">
+											<ButtonLink variant="outline-primary">
+												Visualizza il tuo profilo
+											</ButtonLink>
+										</div>
+									</div>
+									<NavDropdown.Divider />
+									<NavDropdown.Item href="#action/3.2">
+										<h6>Account</h6>
+									</NavDropdown.Item>
+									<NavDropdown.Item href="#action/3.3">
+										Prova Premium per 0 EUR
+									</NavDropdown.Item>
+									<NavDropdown.Item href="#action/3.4">
+										Impostazioni e privacy
+									</NavDropdown.Item>
+									<NavDropdown.Item href="#action/3.5">
+										Guida
+									</NavDropdown.Item>
+									<NavDropdown.Item href="#action/3.6">
+										Lingua
+									</NavDropdown.Item>
+									<NavDropdown.Divider />
+									<NavDropdown.Item href="#action/3.7">
+										<h6>Gestisci</h6>
+									</NavDropdown.Item>
+									<NavDropdown.Item href="#action/3.8">
+										Post e attività
+									</NavDropdown.Item>
+									<NavDropdown.Item href="#action/3.9">
+										Account per la pubblicazione di offerte
+									</NavDropdown.Item>
+									<NavDropdown.Divider />
+									<NavDropdown.Item href="#action/4.0">
+										Esci
+									</NavDropdown.Item>
+								</NavDropdown>
 								<NavDropdown.Item
 									href="#action/3.2"
 									className="pe-0">

@@ -1,3 +1,4 @@
+
 import { NAVBAR_INFO } from "../actions";
 
 const InitialState = {
@@ -16,4 +17,3 @@ export const profileReducers = (state = InitialState, action) => {
 			console.log("NAVBAR_INFO default");
 			return state;
 	}
-};

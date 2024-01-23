@@ -10,10 +10,10 @@ function App() {
 	return (
 		<div>
 			<BrowserRouter>
-				<MyNavbar />
-
-				<CentralSection />
-
+				<Container style={{ maxWidth: "1200px" }}>
+					<MyNavbar />
+					<CentralSection />
+				</Container>
 				<MyFooter />
 			</BrowserRouter>
 		</div>

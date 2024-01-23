@@ -143,17 +143,35 @@ body {
 }
 
 .primaIconaVia {
-  @media screen and (max-width: 431px) {
-    display: none;
-  }
+	@media screen and (max-width: 431px) {
+		display: none;
+	}
 }
 .secondaIconaVia {
-  @media screen and (max-width: 400px) {
-    display: none;
-  }
+	@media screen and (max-width: 400px) {
+		display: none;
+	}
 }
 .terzaIconaVia {
-  @media screen and (max-width: 370px) {
-    display: none;
-  }
+	@media screen and (max-width: 370px) {
+		display: none;
+	}
+}
+
+.buttonHover:hover {
+	background-color: #4e5d6c;
+	color: white;
+}
+
+.mostraTutto:hover {
+	background-color: rgb(226, 224, 224);
+}
+
+.videoTitle {
+	font-size: smaller;
+	line-height: 20px;
+}
+
+.nomeProfilo {
+	font-weight: 500;
 }

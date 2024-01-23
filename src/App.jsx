@@ -5,17 +5,18 @@ import MyFooter from "./components/profilePage/MyFooter";
 import CentralSection from "./components/profilePage/CentralSection";
 
 function App() {
-  return (
-    <div>
-      <BrowserRouter>
-        <MyNavbar>
-          <CentralSection />
-        </MyNavbar>
+	return (
+		<div>
+			<BrowserRouter>
+				<MyNavbar>
+					{" "}
+					<CentralSection />{" "}
+				</MyNavbar>
 
-        <MyFooter />
-      </BrowserRouter>
-    </div>
-  );
+				<MyFooter />
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;

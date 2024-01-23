@@ -4,13 +4,6 @@ import SidebarProfileRight from "./SidebarProfileRight";
 
 const CentralSection = () => {
   return (
-    <Container className="d-flex align-items-start gap-2" style={{ maxWidth: "1200px" }}>
-      <Preview />
-      {/* sezione con img profilo, nome, domicilio etc */}
-      <SidebarProfileRight />
-    </Container>
-  );
-  return (
     <Container className="d-flex align-items-start gap-2">
       <Row>
         <Col xs={12} md={7} lg={8} xl={9}>

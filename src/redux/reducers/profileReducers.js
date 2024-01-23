@@ -1,8 +1,8 @@
-const InitialState = {
+const initialState = {
   info: [],
 };
 
-const profileReducers = (state = InitialState, action) => {
+const profileReducers = (state = initialState, action) => {
   switch (action.type) {
     case "NAVBAR_INFO":
       console.log("NAVBAR_INFO payload:", action.payload);

@@ -7,7 +7,7 @@ import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 const Preview = () => {
 	return (
-		<Card className="position-relative mt-4  ">
+		<Card className="position-relative mt-4">
 			<Button
 				className="bg-white position-absolute d-flex justify-content-center align-items-center border-0"
 				style={{
@@ -24,7 +24,7 @@ const Preview = () => {
 				src="https://media.licdn.com/dms/image/D4D16AQF1hv5Mwirbpg/profile-displaybackgroundimage-shrink_350_1400/0/1699741394523?e=1711584000&v=beta&t=WxSV99YRwIo7xPHEgaPCpcnkoTfYVpAjnhAyjM15cF4"
 				className="mb-4"
 			/>
-			<Card.Body className="pb-4">
+			<Card.Body className="p-4">
 				<img
 					src="https://m.media-amazon.com/images/I/51zf0DXxT-L._AC_UF1000,1000_QL80_.jpg"
 					alt="profilo"

@@ -1,6 +1,8 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Preview from "./centralSection/Preview";
 import SidebarProfileRight from "./SidebarProfileRight";
+import Analisi from "./centralSection/Analisi";
+import Risorse from "./centralSection/Risorse";
 
 const CentralSection = () => {
 	return (
@@ -8,6 +10,8 @@ const CentralSection = () => {
 			<Row>
 				<Col xs={12} md={7} lg={8} xl={9}>
 					<Preview />
+					<Analisi />
+					<Risorse />
 					{/* vari componenti */}
 					{/* vari componenti */}
 					{/* vari componenti */}

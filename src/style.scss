@@ -141,3 +141,19 @@ body {
 		display: none;
 	}
 }
+
+.primaIconaVia {
+  @media screen and (max-width: 431px) {
+    display: none;
+  }
+}
+.secondaIconaVia {
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
+}
+.terzaIconaVia {
+  @media screen and (max-width: 370px) {
+    display: none;
+  }
+}

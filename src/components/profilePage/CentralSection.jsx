@@ -3,6 +3,8 @@ import Preview from "./centralSection/Preview";
 import SidebarProfileRight from "./SidebarProfileRight";
 import Analisi from "./centralSection/Analisi";
 import Risorse from "./centralSection/Risorse";
+import Informazioni from "./centralSection/Informazioni";
+import Esperienze from "./centralSection/Esperienze";
 
 const CentralSection = () => {
 	return (
@@ -12,11 +14,8 @@ const CentralSection = () => {
 					<Preview />
 					<Analisi />
 					<Risorse />
-					{/* vari componenti */}
-					{/* vari componenti */}
-					{/* vari componenti */}
-					{/* vari componenti */}
-					{/* vari componenti */}
+					<Informazioni />
+					<Esperienze />
 					{/* vari componenti */}
 					{/* vari componenti */}
 					{/* vari componenti */}

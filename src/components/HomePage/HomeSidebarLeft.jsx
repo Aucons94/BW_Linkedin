@@ -10,7 +10,7 @@ const HomeSidebarLeft = () => {
 
 	return (
 		<>
-			<Card className="position-relative mt-4 rounded-bottom-sm-3 rounded-bottom-md-0">
+			<Card className="position-relative mt-4 rounded-bottom-sm-3 rounded-bottom-md-0 border-bottom">
 				<Card.Img
 					variant="top"
 					src="https://media.licdn.com/dms/image/D4D16AQF1hv5Mwirbpg/profile-displaybackgroundimage-shrink_350_1400/0/1699741394523?e=1711584000&v=beta&t=WxSV99YRwIo7xPHEgaPCpcnkoTfYVpAjnhAyjM15cF4"
@@ -41,7 +41,7 @@ const HomeSidebarLeft = () => {
 				</Card.Body>
 			</Card>
 			<Card
-				className="border-top border-bottom-0 rounded-0 pt-4 pb-2 px-3 mostraTutto d-none d-md-block"
+				className="border-top-0 border-bottom-0 rounded-0 pt-4 pb-2 px-3 mostraTutto d-none d-md-block"
 				style={{ cursor: "pointer" }}>
 				<div className="d-flex justify-content-between lh-1">
 					<span className="text-secondary">Collegamenti</span>
@@ -54,8 +54,10 @@ const HomeSidebarLeft = () => {
 			<Card
 				className="d-flex justify-content-between flex-row border-top-0 border-bottom-0 rounded-0 py-2 px-3 mostraTutto d-none d-md-block"
 				style={{ cursor: "pointer" }}>
-				<span className="text-secondary">Invito</span>
-				<span className="text-primary">1</span>
+				<div className="d-flex justify-content-between">
+					<span className="text-secondary">Invito</span>
+					<span className="text-primary">1</span>
+				</div>
 			</Card>
 			<Card
 				className="border-top border-bottom-0 rounded-0 py-4 px-3 mostraTutto d-none d-md-block"

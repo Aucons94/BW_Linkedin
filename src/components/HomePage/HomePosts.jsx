@@ -32,33 +32,16 @@ const HomePosts = () => {
 	}, []);
 	return (
 		<>
-			<Card className="mt-4 p-5">
-				{
-					posts.map((post) => {
-						<p>{post.text}</p>;
-					})
-					/* <div className="d-flex p-4 gap-3">
-					<img
-						src={
-							profile.image
-								? profile.image
-								: "https://m.media-amazon.com/images/I/51zf0DXxT-L._AC_UF1000,1000_QL80_.jpg"
-						}
-						alt="profilo"
-						style={{
-							width: "70px",
-							height: "70px",
-							borderRadius: "50%",
-						}}
-					/>
-					<Form.Control
-						type="text"
-						placeholder="Avvia un post"
-						onChange={(e) => dispatch(createPost(e.target.value))}
-					/>
-				</div> */
-				}
-			</Card>
+			{posts.map((post) => {
+				return (
+					<Card className="my-2 p-5">
+						<h3>
+							{post.user.name} {post.user.surname}
+						</h3>
+						<p className="text-primary">{post.text}</p>
+					</Card>
+				);
+			})}
 		</>
 	);
 };

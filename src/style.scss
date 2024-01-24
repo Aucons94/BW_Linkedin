@@ -47,6 +47,7 @@ body {
 
 .myNavbar {
   height: 50px;
+  z-index: 2000;
   p {
     font-size: 12px;
   }
@@ -192,4 +193,30 @@ body {
 
 .nomeProfilo {
   font-weight: 500;
+}
+.fs-7 {
+  font-size: 12px;
+}
+.cardImage {
+  width: 40px;
+  height: 40px;
+  margin-inline: auto;
+}
+.cardImage:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+.sottolineato {
+  text-decoration: none;
+}
+.sottolineato:hover {
+  text-decoration: none;
+}
+.customCanvas {
+  border-radius: 10px 0 0 10px;
+  margin-top: 50px;
+  z-index: 2000;
+}
+body.canvasOpen {
+  overflow: hidden;
 }

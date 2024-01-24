@@ -361,8 +361,36 @@ function MyNavbar({ children }) {
           </Container>
           <Container fluid className="border border-dark p-3">
             <Link>
-              <p className="lh-sm fs-7">
-                <span className="fs-6"> Assumi su LinkedIn</span> <br /> Trova, attrai e assumi
+              <p className=" fs-8 fw-light canvasBusiness">
+                <span className="fs-7 fw-medium"> Assumi su LinkedIn</span> <br /> Trova, attrai e assumi
+              </p>
+            </Link>
+            <Link>
+              <p className=" fs-8 fw-light canvasBusiness">
+                <span className="fs-7 fw-medium"> Vendi con LinkedIn</span> <br /> Sblocca nuove opportunità di vendita
+              </p>
+            </Link>
+            <Link>
+              <p className=" fs-8 fw-light canvasBusiness">
+                <span className="fs-7 fw-medium"> Offerta di lavoro gratuita</span> <br /> Ottieni rapidamente candidati
+                qualificati
+              </p>
+            </Link>
+            <Link>
+              <p className=" fs-8 fw-light canvasBusiness">
+                <span className="fs-7 fw-medium"> Fai pubblicità su LinkedIn </span> <br /> Acquisisci clienti e fai
+                crescere la tua azienda
+              </p>
+            </Link>
+            <Link>
+              <p className=" fs-8 fw-light canvasBusiness">
+                <span className="fs-7 fw-medium"> Impara con LinkedIn</span> <br /> Corsi per formare i tuoi dipendenti
+              </p>
+            </Link>
+            <Link>
+              <p className=" fs-8 fw-light canvasBusiness">
+                <span className="fs-7 fw-medium"> Centro amministrazione</span> <br /> Gestisci i dettagli di
+                fatturazione e account
               </p>
             </Link>
           </Container>

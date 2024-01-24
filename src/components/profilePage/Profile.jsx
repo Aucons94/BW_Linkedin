@@ -1,12 +1,12 @@
 import { Col, Container, Row } from "react-bootstrap";
-import Preview from "./centralSection/Preview";
+import Preview from "./ProfileSection/Preview";
 import SidebarProfileRight from "./SidebarProfileRight";
-import Analisi from "./centralSection/Analisi";
-import Risorse from "./centralSection/Risorse";
-import Informazioni from "./centralSection/Informazioni";
-import Esperienze from "./centralSection/Esperienze";
+import Analisi from "./ProfileSection/Analisi";
+import Risorse from "./ProfileSection/Risorse";
+import Informazioni from "./ProfileSection/Informazioni";
+import Esperienze from "./ProfileSection/Esperienze";
 
-const CentralSection = () => {
+const Profile = () => {
 	return (
 		<Container className="d-flex align-items-start gap-2">
 			<Row>
@@ -27,4 +27,4 @@ const CentralSection = () => {
 		</Container>
 	);
 };
-export default CentralSection;
+export default Profile;

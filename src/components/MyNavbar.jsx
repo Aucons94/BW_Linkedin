@@ -359,6 +359,13 @@ function MyNavbar({ children }) {
           <Container fluid className="border border-dark">
             <h6>Scopri altri Prodotti per il Business</h6>
           </Container>
+          <Container fluid className="border border-dark p-3">
+            <Link>
+              <p className="lh-sm fs-7">
+                <span className="fs-6"> Assumi su LinkedIn</span> <br /> Trova, attrai e assumi
+              </p>
+            </Link>
+          </Container>
         </Offcanvas.Body>
       </Offcanvas>
       {children}

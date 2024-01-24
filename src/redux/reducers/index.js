@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import profileReducers from "./profileReducers";
+import { experienceReducer } from "./ExperienceReducer";
+import { profileReducers } from "./profileReducers";
 
 const rootReducer = combineReducers({
-  info: profileReducers,
+	info: profileReducers,
+	experience: experienceReducer,
 });
 
 export default rootReducer;

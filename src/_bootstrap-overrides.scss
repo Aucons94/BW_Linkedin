@@ -17,9 +17,9 @@ $link-decoration: none;
 $link-hover-decoration: underline;
 $font-weight-bold: 600;
 $card-border-radius: 10px;
-$input-border-radius: 50px;
-$input-padding-y: 1rem;
-$input-padding-x: 25px;
+// $input-border-radius: 50px;
+// $input-padding-y: 0.7rem;
+// $input-padding-x: 25px;
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/variables-dark";

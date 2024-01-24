@@ -6,7 +6,7 @@ import { postReducer } from "../reducers/postReducer";
 const rootReducer = combineReducers({
 	profilo: profileReducers,
 	multiProfili: multiProfiliReducers,
-	post: postReducer,
+	postData: postReducer,
 });
 
 const store = configureStore({

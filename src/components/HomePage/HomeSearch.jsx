@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost } from "../../redux/actions";
+import ButtonLink from "../profilePage/utility/ButtonLink";
 
 const HomeSearch = () => {
 	const profile = useSelector((state) => state.profilo.info);
@@ -31,36 +32,38 @@ const HomeSearch = () => {
 					/>
 					<Form.Control
 						type="text"
+						id="HomeSearch"
+						// style={{ borderRadius: "50px" }}
 						placeholder="Avvia un post"
 						onChange={(e) => dispatch(createPost(e.target.value))}
 					/>
 				</div>
-				<div className="d-flex px-4 justify-content-between flex-wrap  gap-3">
-					<div className="d-flex gap-3">
+				<div className="d-flex px-4 flex-wrap justify-content-between">
+					<ButtonLink className="d-flex gap-3">
 						<FontAwesomeIcon
-							className="fs-2 text-primary pt-1"
+							className="fs-3 text-primary pt-1"
 							icon={faImage}
 						/>
-						<p className="text-secondary fs-3">
+						<p className="text-secondary fs-5">
 							Contenuti Multimediali
 						</p>
-					</div>
-					<div className="d-flex gap-3">
+					</ButtonLink>
+					<ButtonLink className="d-flex gap-3">
 						<FontAwesomeIcon
-							className="fs-2 text-warning pt-1"
+							className="fs-3 text-warning pt-1"
 							icon={faCalendarDay}
 						/>
-						<p className="text-secondary fs-3">Evento</p>
-					</div>
-					<div className="d-flex gap-3">
+						<p className="text-secondary fs-5">Evento</p>
+					</ButtonLink>
+					<ButtonLink className="d-flex gap-3">
 						<FontAwesomeIcon
-							className="fs-2 text-danger pt-1"
+							className="fs-3 text-danger pt-1"
 							icon={faNewspaper}
 						/>
-						<p className="text-secondary fs-3">
+						<p className="text-secondary fs-5">
 							Scrivi un articolo
 						</p>
-					</div>
+					</ButtonLink>
 				</div>
 			</Card>
 		</>

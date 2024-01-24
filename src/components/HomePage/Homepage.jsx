@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import HomeSearch from "./HomeSearchbar";
+import HomeSearch from "./HomeSearch";
 import HomePosts from "./HomePosts";
 
 const HomePage = () => {

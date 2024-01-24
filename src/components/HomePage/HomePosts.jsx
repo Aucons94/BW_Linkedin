@@ -2,12 +2,13 @@ import { Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { token } from "../../token";
 import { useEffect } from "react";
+import { getPosts } from "../../redux/actions";
 
 const HomePosts = () => {
-	const profile = useSelector((state) => state.profilo.info);
+	const posts = useSelector((state) => state.postData.posts);
 	const dispatch = useDispatch();
 
-	const getPosts = async () => {
+	const fetchPosts = async () => {
 		const endpoint = "https://striveschool-api.herokuapp.com/api/posts/";
 		try {
 			let response = await fetch(endpoint, {
@@ -26,12 +27,17 @@ const HomePosts = () => {
 	};
 
 	useEffect(() => {
-		// getPosts();
+		fetchPosts();
+		console.log(posts);
 	}, []);
 	return (
 		<>
 			<Card className="mt-4 p-5">
-				{/* <div className="d-flex p-4 gap-3">
+				{
+					posts.map((post) => {
+						<p>{post.text}</p>;
+					})
+					/* <div className="d-flex p-4 gap-3">
 					<img
 						src={
 							profile.image
@@ -50,7 +56,8 @@ const HomePosts = () => {
 						placeholder="Avvia un post"
 						onChange={(e) => dispatch(createPost(e.target.value))}
 					/>
-				</div> */}
+				</div> */
+				}
 			</Card>
 		</>
 	);

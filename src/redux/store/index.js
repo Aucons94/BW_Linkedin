@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { profileReducers } from "../reducers/profileReducers";
 import { multiProfiliReducers } from "../reducers/multiProfileReducers";
+import { postReducer } from "../reducers/postReducer";
 
 const rootReducer = combineReducers({
 	profilo: profileReducers,
 	multiProfili: multiProfiliReducers,
+	post: postReducer,
 });
 
 const store = configureStore({

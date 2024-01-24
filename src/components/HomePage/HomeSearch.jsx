@@ -7,10 +7,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost } from "../../redux/actions";
+import { createPostsData, setValuePost } from "../../redux/actions";
 import ButtonLink from "../profilePage/utility/ButtonLink";
 
-const HomeSearch = () => {
+const HomeCreatePost = () => {
 	const profile = useSelector((state) => state.profilo.info);
 	const dispatch = useDispatch();
 	return (
@@ -33,9 +33,13 @@ const HomeSearch = () => {
 					<Form.Control
 						type="text"
 						id="HomeSearch"
-						// style={{ borderRadius: "50px" }}
 						placeholder="Avvia un post"
-						onChange={(e) => dispatch(createPost(e.target.value))}
+						onChange={(e) => dispatch(setValuePost(e.target.value))}
+						onKeyUp={(e) => {
+							if (e.key === "Enter") {
+								dispatch(createPostsData());
+							}
+						}}
 					/>
 				</div>
 				<div className="d-flex px-4 flex-wrap justify-content-between">
@@ -70,4 +74,4 @@ const HomeSearch = () => {
 	);
 };
 
-export default HomeSearch;
+export default HomeCreatePost;

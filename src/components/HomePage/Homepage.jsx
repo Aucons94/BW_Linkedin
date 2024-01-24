@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import HomeSearch from "./HomeSearch";
+import HomeCreatePost from "./HomeSearch";
 import HomePosts from "./HomePosts";
 
 const HomePage = () => {
@@ -9,7 +9,7 @@ const HomePage = () => {
 				<Row>
 					<Col></Col>
 					<Col xs={12} md={8}>
-						<HomeSearch />
+						<HomeCreatePost />
 						<HomePosts />
 					</Col>
 					<Col></Col>

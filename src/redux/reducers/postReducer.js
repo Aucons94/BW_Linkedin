@@ -1,4 +1,4 @@
-import { CREATE_POST, GET_POST } from "../actions";
+import { GET_POST, SET_VALUE_POST } from "../actions";
 
 const InitialState = {
 	create: "",
@@ -7,10 +7,10 @@ const InitialState = {
 
 export const postReducer = (state = InitialState, action) => {
 	switch (action.type) {
-		case CREATE_POST:
+		case SET_VALUE_POST:
 			return {
 				...state,
-				create: action.payload,
+				createValue: action.payload,
 			};
 		case GET_POST:
 			return {

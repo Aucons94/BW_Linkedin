@@ -3,7 +3,7 @@ import { token } from "../../token";
 export const NAVBAR_INFO = "NAVBAR_INFO";
 export const GET_PROFILI = "GET_PROFILI";
 export const GET_EXPERIENCE = "GET_EXPERIENCE";
-export const CREATE_POST = "CREATE_POST";
+export const SET_VALUE_POST = "SET_VALUE_POST";
 export const GET_POST = "GET_POST";
 export const SET_LOADING_TRUE = "SET_LOADING_TRUE";
 export const SET_LOADING_FALSE = "SET_LOADING_FALSE";
@@ -24,8 +24,8 @@ export const setExperience = (payload) => ({
 	payload,
 });
 
-export const createPost = (payload) => ({
-	type: CREATE_POST,
+export const setValuePost = (payload) => ({
+	type: SET_VALUE_POST,
 	payload,
 });
 
@@ -56,6 +56,43 @@ export const getPostsData = () => {
 			const response = await resp.json();
 			console.log(response);
 			dispatch(getPosts(response));
+			dispatch({
+				type: SET_LOADING_FALSE,
+			});
+		} catch (error) {
+			dispatch({
+				type: SET_ERROR,
+				payload: error,
+			});
+		}
+	};
+};
+
+export const createPostsData = () => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: SET_LOADING_TRUE,
+			});
+			const payload = getState().postData.createValue;
+			const endpoint =
+				"https://striveschool-api.herokuapp.com/api/posts/";
+			const resp = await fetch(endpoint, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: token,
+				},
+				body: JSON.stringify({
+					text: payload,
+				}),
+			});
+			if (!resp.ok) {
+				throw "Errore nella fetch";
+			}
+			const response = await resp.json();
+			console.log(response);
+			// dispatch(getPosts(response));
 			dispatch({
 				type: SET_LOADING_FALSE,
 			});

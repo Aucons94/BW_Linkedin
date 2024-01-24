@@ -20,7 +20,6 @@ const HomePosts = () => {
 
 	useEffect(() => {
 		dispatch(getPostsData());
-		console.log("Singolo post: ", posts[5]);
 	}, []);
 
 	const sortedPosts = [...posts].sort(
@@ -48,9 +47,6 @@ const HomePosts = () => {
 			return `${days} ${days === 1 ? "giorno" : "giorni"} fa`;
 		}
 	}
-
-	const dateString = "2024-01-24T17:38:56.209Z";
-	const timeAgoString = timeAgo(dateString);
 
 	return (
 		<>

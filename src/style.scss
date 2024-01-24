@@ -177,6 +177,14 @@ body {
 		display: none;
 	}
 }
+
+.rounded-bottom-md-0 {
+	@media (min-width: 768px) {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+}
+
 .buttonHover:hover {
 	background-color: #4e5d6c;
 	color: white;

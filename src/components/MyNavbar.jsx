@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Col, Form, InputGroup, Row } from "react-bootstrap";
+import { Col, Form, InputGroup, Offcanvas, Row } from "react-bootstrap";
 import {
   faBriefcase,
   faHome,
@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import { setNavbarInfo } from "../redux/actions";
 import ButtonLink from "./profilePage/utility/ButtonLink";
 import { end } from "@popperjs/core";
+import { token } from "../token";
 
 function MyNavbar({ children }) {
   const InfoProfilo = useSelector((state) => state.profilo.info);
@@ -32,8 +33,7 @@ function MyNavbar({ children }) {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlNjI4MDYwMGJlMTAwMTgzYTg2YjUiLCJpYXQiOjE3MDU5MjczMTgsImV4cCI6MTcwNzEzNjkxOH0.pDglMvdYjnNomxK6G4zXcsal92m3qQmF2T7fIUx_lzA",
+          Authorization: token,
         },
       });
       let data = await response.json();
@@ -56,6 +56,11 @@ function MyNavbar({ children }) {
   const handleSearchIconClick = () => {
     setShowSearchBar(false);
   };
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
@@ -90,26 +95,26 @@ function MyNavbar({ children }) {
               <FontAwesomeIcon icon={faHome} />
               <p className="m-0">Home</p>
             </Nav.Link>
-            <Nav.Link href="#rete" className="text-center px-3 customNavLink">
+            <Nav.Link href="/" className="text-center px-3 customNavLink">
               <FontAwesomeIcon icon={faUserFriends} />
               <p className="m-0">Rete</p>
             </Nav.Link>
-            <Nav.Link href="#lavoro" className="text-center px-3 customNavLink">
+            <Nav.Link href="/" className="text-center px-3 customNavLink">
               <FontAwesomeIcon icon={faBriefcase} />
               <p className="m-0">Lavoro</p>
             </Nav.Link>
-            <Nav.Link href="#messaggistica" className="text-center px-3 customNavLink terzaIconaVia">
+            <Nav.Link href="/" className="text-center px-3 customNavLink terzaIconaVia">
               <FontAwesomeIcon icon={faCommentDots} />
               <p className="m-0">Messaggistica</p>
             </Nav.Link>
-            <Nav.Link href="#link" className="text-center px-3 customNavLink secondaIconaVia">
+            <Nav.Link href="/" className="text-center px-3 customNavLink secondaIconaVia">
               <FontAwesomeIcon icon={faBell} />
               <p className="m-0">Notifiche</p>
             </Nav.Link>
             <div>
               <NavDropdown title="Tu" id="basic-nav-dropdown" align={end} className="primaIconaVia">
                 <div>
-                  <Row>
+                  <Row className="mb-2">
                     <Col xs={3}>
                       {InfoProfilo && (
                         <Link to="/profile/me">
@@ -130,7 +135,7 @@ function MyNavbar({ children }) {
                       <h6>
                         {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
                       </h6>
-                      <p>{InfoProfilo.bio}Bio vuota</p>
+                      <p>{InfoProfilo.bio}placeholder</p>
                     </Col>
                   </Row>
 
@@ -139,24 +144,24 @@ function MyNavbar({ children }) {
                   </div>
                 </div>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.2">
+                <NavDropdown.Item href="/">
                   <h6>Account</h6>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Prova Premium per 0 EUR</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.4">Impostazioni e privacy</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.5">Guida</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.6">Lingua</NavDropdown.Item>
+                <NavDropdown.Item href="/">Prova Premium per 0 EUR</NavDropdown.Item>
+                <NavDropdown.Item href="/">Impostazioni e privacy</NavDropdown.Item>
+                <NavDropdown.Item href="/">Guida</NavDropdown.Item>
+                <NavDropdown.Item href="/">Lingua</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.7">
+                <NavDropdown.Item href="/">
                   <h6>Gestisci</h6>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.8">Post e attività</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.9">Account per la pubblicazione di offerte</NavDropdown.Item>
+                <NavDropdown.Item href="/">Post e attività</NavDropdown.Item>
+                <NavDropdown.Item href="/">Account per la pubblicazione di offerte</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/4.0">Esci</NavDropdown.Item>
+                <NavDropdown.Item href="/">Esci</NavDropdown.Item>
               </NavDropdown>
             </div>
-            <Nav.Link href="#lavoro" className="text-center p-0 dropScompare">
+            <Nav.Link href="/" className="text-center p-0 dropScompare" onClick={handleShow}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -178,44 +183,39 @@ function MyNavbar({ children }) {
             </div>
             <NavDropdown title="..." id="basic-nav-dropdown" align={end} className="dropAppare">
               <div className="d-flex">
-                <Nav.Link href="#home" className="text-center px-3 customNavLink">
-                  <FontAwesomeIcon icon={faHome} />
-                  <p className="m-0">Home</p>
-                </Nav.Link>
-                <Nav.Link href="#rete" className="text-center px-3 customNavLink">
-                  <FontAwesomeIcon icon={faUserFriends} />
-                  <p className="m-0">Rete</p>
-                </Nav.Link>
-                <Nav.Link href="#lavoro" className="text-center px-3 customNavLink">
-                  <FontAwesomeIcon icon={faBriefcase} />
-                  <p className="m-0">Lavoro</p>
-                </Nav.Link>
-                <Nav.Link href="#messaggistica" className="text-center px-3 customNavLink">
+                <Nav.Link href="/" className="text-center px-3 customNavLink terzaIconaIn">
                   <FontAwesomeIcon icon={faCommentDots} />
                   <p className="m-0">Messaggistica</p>
                 </Nav.Link>
-                <Nav.Link href="#link" className="text-center px-3 customNavLink">
+                <Nav.Link href="/" className="text-center px-3 customNavLink secondaIconaIn">
                   <FontAwesomeIcon icon={faBell} />
                   <p className="m-0">Notifiche</p>
                 </Nav.Link>
-                <NavDropdown title="Tu" id="basic-nav-dropdown" align={end}>
+                <NavDropdown title="Tu" id="basic-nav-dropdown" align={end} className="primaIconaIn">
                   <div>
-                    <Row>
-                      <Col xs={4}>
+                    <Row className="mb-2">
+                      <Col xs={3}>
                         {InfoProfilo && (
                           <Link to="/profile/me">
                             <img
                               style={{
-                                width: "25px",
-                                height: "25px",
+                                width: "50px",
+                                height: "50px",
+                                marginLeft: "20px",
+                                borderRadius: "50%",
                               }}
                               src={InfoProfilo.image}
-                              alt="kitten"
+                              alt=""
                             />
                           </Link>
                         )}
                       </Col>
-                      <Col xs={8}></Col>
+                      <Col xs={9}>
+                        <h6>
+                          {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
+                        </h6>
+                        <p>{InfoProfilo.bio}placeholder</p>
+                      </Col>
                     </Row>
 
                     <div className="text-center">
@@ -223,23 +223,23 @@ function MyNavbar({ children }) {
                     </div>
                   </div>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.2">
+                  <NavDropdown.Item href="/">
                     <h6>Account</h6>
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Prova Premium per 0 EUR</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.4">Impostazioni e privacy</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.5">Guida</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.6">Lingua</NavDropdown.Item>
+                  <NavDropdown.Item href="/">Prova Premium per 0 EUR</NavDropdown.Item>
+                  <NavDropdown.Item href="/">Impostazioni e privacy</NavDropdown.Item>
+                  <NavDropdown.Item href="/">Guida</NavDropdown.Item>
+                  <NavDropdown.Item href="/">Lingua</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.7">
+                  <NavDropdown.Item href="/">
                     <h6>Gestisci</h6>
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.8">Post e attività</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.9">Account per la pubblicazione di offerte</NavDropdown.Item>
+                  <NavDropdown.Item href="/">Post e attività</NavDropdown.Item>
+                  <NavDropdown.Item href="/">Account per la pubblicazione di offerte</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/4.0">Esci</NavDropdown.Item>
+                  <NavDropdown.Item href="/">Esci</NavDropdown.Item>
                 </NavDropdown>
-                <NavDropdown.Item href="#action/3.2" className="pe-0">
+                <NavDropdown.Item href="/" className="pe-0" onClick={handleShow}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -251,8 +251,8 @@ function MyNavbar({ children }) {
                     <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
                   </svg>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.7">
-                  <div className="premium">
+                <NavDropdown.Item href="/">
+                  <div className="premium2">
                     <Link className="d-flex flex-column align-items-center">
                       Prova Premium <p className="m-0">per 0 EUR</p>
                     </Link>
@@ -263,6 +263,15 @@ function MyNavbar({ children }) {
           </Nav>
         </Container>
       </Navbar>
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists,
+          etc.
+        </Offcanvas.Body>
+      </Offcanvas>
       {children}
     </>
   );

@@ -13,6 +13,7 @@ import {
   faBell,
   faCommentDots,
   faCaretDown,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,7 +26,6 @@ import learningIMG from "../media/learning.png";
 
 function MyNavbar({ children }) {
   const InfoProfilo = useSelector((state) => state.profilo.info);
-  console.log("InfoProfilo:", InfoProfilo);
   const dispatch = useDispatch();
 
   const getMyInfo = async () => {
@@ -279,10 +279,10 @@ function MyNavbar({ children }) {
           <Offcanvas.Title>Per le Aziende</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Container fluid className="border border-dark">
+          <Container fluid className="bordoGrigio rounded-top-3">
             <h6>Scopri altri prodotti LinkedIn</h6>
           </Container>
-          <Container fluid className="border border-dark pt-3">
+          <Container fluid className="bordoGrigio pt-3 rounded-bottom-3">
             <Row>
               <Col xs={3}>
                 <Card className="rounded-0 border-0 ">
@@ -356,10 +356,10 @@ function MyNavbar({ children }) {
               </Col>
             </Row>
           </Container>
-          <Container fluid className="border border-dark">
+          <Container fluid className="bordoGrigio rounded-top-3">
             <h6>Scopri altri Prodotti per il Business</h6>
           </Container>
-          <Container fluid className="border border-dark p-3">
+          <Container fluid className="bordoGrigio p-3">
             <Link>
               <p className=" fs-8 fw-light canvasBusiness">
                 <span className="fs-7 fw-medium"> Assumi su LinkedIn</span> <br /> Trova, attrai e assumi
@@ -393,6 +393,11 @@ function MyNavbar({ children }) {
                 fatturazione e account
               </p>
             </Link>
+          </Container>
+          <Container fluid className="bordoGrigio p-3 rounded-bottom-3">
+            <p className="fs-7 fw-medium canvasBusiness">
+              Crea una pagina aziendale <FontAwesomeIcon className="fs-6 align-middle ps-1" icon={faPlus} />
+            </p>
           </Container>
         </Offcanvas.Body>
       </Offcanvas>

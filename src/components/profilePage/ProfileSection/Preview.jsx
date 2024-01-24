@@ -4,8 +4,10 @@ import ButtonLink from "../utility/ButtonLink";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 const Preview = () => {
+	const profile = useSelector((state) => state.profilo.info);
 	return (
 		<Card className="position-relative mt-4">
 			<Button
@@ -21,12 +23,16 @@ const Preview = () => {
 			</Button>
 			<Card.Img
 				variant="top"
-				src="https://media.licdn.com/dms/image/D4D16AQF1hv5Mwirbpg/profile-displaybackgroundimage-shrink_350_1400/0/1699741394523?e=1711584000&v=beta&t=WxSV99YRwIo7xPHEgaPCpcnkoTfYVpAjnhAyjM15cF4"
+				src="https://media.licdn.com/dms/image/D4E16AQFX1VYtIB7Gsw/profile-displaybackgroundimage-shrink_350_1400/0/1670241902799?e=1711584000&v=beta&t=Y1TCjyHZN68WHlbtVLAmIK98zJGu5kYfcfWhr95q0BA"
 				className="mb-4"
 			/>
 			<Card.Body className="p-4">
 				<img
-					src="https://m.media-amazon.com/images/I/51zf0DXxT-L._AC_UF1000,1000_QL80_.jpg"
+					src={
+						profile.image
+							? profile.image
+							: "https://m.media-amazon.com/images/I/51zf0DXxT-L._AC_UF1000,1000_QL80_.jpg"
+					}
 					alt="profilo"
 					style={{
 						width: "120px",
@@ -34,14 +40,11 @@ const Preview = () => {
 						borderRadius: "50%",
 						marginTop: "-170px",
 						marginLeft: "10px",
-						// position: "absolute",
-						// top: "70px",
-						// left: "20px",
 					}}
 					className="border border-3 border-white"
 				/>
 				<div className="d-flex justify-content-between">
-					<h3>Obabo Obama</h3>
+					<h3>{profile.name ? profile.name : "no data name"}</h3>
 					<ButtonLink className={"p-0"}>
 						<FontAwesomeIcon
 							className="text-secondary me-3 "
@@ -49,9 +52,11 @@ const Preview = () => {
 						/>
 					</ButtonLink>
 				</div>
-				<p className="mb-1">Full stack web developer</p>
+				<p className="mb-1">
+					{profile.role ? profile.role : "no data role"}
+				</p>
 				<p className="text-secondary ">
-					Roma, Lazio, Italia{" "}
+					{profile.area ? profile.area : "no data area"}{" "}
 					<Link className="p-0 fw-bold">
 						<span>Informazioni di contatto</span>
 					</Link>

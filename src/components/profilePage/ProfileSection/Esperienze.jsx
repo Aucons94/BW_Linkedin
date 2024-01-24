@@ -1,21 +1,39 @@
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ButtonLink from "../utility/ButtonLink";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faArrowRight,
-	faChartBar,
-	faEye,
-	faPencil,
-	faPlus,
-	faSatelliteDish,
-	faSearch,
-	faUserFriends,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { setExperience } from "../../../redux/actions";
+import { useEffect } from "react";
 
-const Esperienze = () => {
+const Esperienze = (userId) => {
+	const dispatch = useDispatch();
+
+	const getExperience = async () => {
+		const endpoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`;
+		try {
+			let response = await fetch(endpoint, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization:
+						"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlNjI4MDYwMGJlMTAwMTgzYTg2YjUiLCJpYXQiOjE3MDU5MjczMTgsImV4cCI6MTcwNzEzNjkxOH0.pDglMvdYjnNomxK6G4zXcsal92m3qQmF2T7fIUx_lzA",
+				},
+			});
+			let data = await response.json();
+			console.log("Experience", data);
+			dispatch(setExperience(data));
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		console.log("ciao");
+		getExperience("65ae4351600be100183a869f");
+	}, []);
+
 	return (
 		<Card className="position-relative mt-4">
 			<Container className="p-4 border-bottom">

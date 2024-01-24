@@ -8,10 +8,9 @@ import pic2 from "../../media/Immagine2.png";
 import pic3 from "../../media/Immagine3.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setProfili } from "../../redux/actions";
+import { token } from "../../token";
 
 const SidebarProfileRight = () => {
-	/* const [profile, setProfile] = useState([]); */
-
 	const profiles = useSelector((state) => state.multiProfili.profili);
 
 	const dispatch = useDispatch();
@@ -22,8 +21,7 @@ const SidebarProfileRight = () => {
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json",
-					Authorization:
-						"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlNjI4MDYwMGJlMTAwMTgzYTg2YjUiLCJpYXQiOjE3MDU5MjczMTgsImV4cCI6MTcwNzEzNjkxOH0.pDglMvdYjnNomxK6G4zXcsal92m3qQmF2T7fIUx_lzA",
+					Authorization: token,
 				},
 			});
 			let data = await response.json();

@@ -25,7 +25,6 @@ import learningIMG from "../media/learning.png";
 
 function MyNavbar({ children }) {
   const InfoProfilo = useSelector((state) => state.profilo.info);
-  console.log("InfoProfilo:", InfoProfilo);
   const dispatch = useDispatch();
 
   const getMyInfo = async () => {

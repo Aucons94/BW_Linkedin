@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Card, Col, Form, InputGroup, Offcanvas, Row } from "react-bootstrap";
+import { Card, Col, Form, InputGroup, NavLink, Offcanvas, Row } from "react-bootstrap";
 import {
   faBriefcase,
   faHome,
@@ -93,13 +93,193 @@ function MyNavbar({ children }) {
                 <Form.Control type="text" placeholder="Cerca" className="mr-sm-2" />
               </>
             ) : (
-              <div className="text-center">
-                <FontAwesomeIcon icon={faSearch} onClick={handleSearchButtonClick} className="riposizionamento" />
-                <p className="m-0 cerca">Cerca</p>
-              </div>
+              <Nav className="me-auto">
+                <Nav.Link className="text-center px-3 customNavLink">
+                  <FontAwesomeIcon icon={faSearch} onClick={handleSearchButtonClick} />
+                  <p className="m-0 cerca">Cerca</p>
+                </Nav.Link>
+                <Nav.Link href="#home" className="text-center px-3 customNavLink">
+                  <FontAwesomeIcon icon={faHome} />
+                  <p className="m-0">Home</p>
+                </Nav.Link>
+                <Nav.Link href="/" className="text-center px-3 customNavLink">
+                  <FontAwesomeIcon icon={faUserFriends} />
+                  <p className="m-0">Rete</p>
+                </Nav.Link>
+                <Nav.Link href="/" className="text-center px-3 customNavLink">
+                  <FontAwesomeIcon icon={faBriefcase} />
+                  <p className="m-0">Lavoro</p>
+                </Nav.Link>
+                <Nav.Link href="/" className="text-center px-3 customNavLink terzaIconaVia">
+                  <FontAwesomeIcon icon={faCommentDots} />
+                  <p className="m-0">Messaggistica</p>
+                </Nav.Link>
+                <Nav.Link href="/" className="text-center px-3 customNavLink secondaIconaVia">
+                  <FontAwesomeIcon icon={faBell} />
+                  <p className="m-0">Notifiche</p>
+                </Nav.Link>
+                <div className="d-flex flex-column px-3 ">
+                  {
+                    <img
+                      src={InfoProfilo.image}
+                      alt=""
+                      style={{ width: "25px", height: "25px", borderRadius: "50%", marginTop: "3px" }}
+                    />
+                  }
+                  <NavDropdown title="Tu" id="basic-nav-dropdown" align={end} className="primaIconaVia">
+                    <div>
+                      <Row className="mb-2">
+                        <Col xs={3}>
+                          {InfoProfilo && (
+                            <Link to="/profile/me">
+                              <img
+                                style={{
+                                  width: "50px",
+                                  height: "50px",
+                                  marginLeft: "20px",
+                                  borderRadius: "50%",
+                                }}
+                                src={InfoProfilo.image}
+                                alt=""
+                              />
+                            </Link>
+                          )}
+                        </Col>
+                        <Col xs={9}>
+                          <h6>
+                            {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
+                          </h6>
+                          <p>{InfoProfilo.bio}placeholder</p>
+                        </Col>
+                      </Row>
+
+                      <div className="text-center">
+                        <ButtonLink to="/profile/me" variant="outline-primary">
+                          Visualizza il tuo profilo
+                        </ButtonLink>
+                      </div>
+                    </div>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/">
+                      <h6>Account</h6>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/">Prova Premium per 0 EUR</NavDropdown.Item>
+                    <NavDropdown.Item href="/">Impostazioni e privacy</NavDropdown.Item>
+                    <NavDropdown.Item href="/">Guida</NavDropdown.Item>
+                    <NavDropdown.Item href="/">Lingua</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/">
+                      <h6>Gestisci</h6>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/">Post e attività</NavDropdown.Item>
+                    <NavDropdown.Item href="/">Account per la pubblicazione di offerte</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/">Esci</NavDropdown.Item>
+                  </NavDropdown>
+                </div>
+                <Nav.Link href="/" className="text-center p-0 dropScompare" onClick={handleShow}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="gray"
+                    className="bi bi-grid-3x3-gap-fill riposizionamento"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
+                  </svg>
+                  <p className="m-0 perleaziende">
+                    Per le aziende <FontAwesomeIcon icon={faCaretDown} />
+                  </p>
+                </Nav.Link>
+                <div className="premium dropScompare">
+                  <Link className="d-flex flex-column align-items-center">
+                    Prova Premium <p className="m-0">per 0 EUR</p>
+                  </Link>
+                </div>
+                <NavDropdown title="..." id="basic-nav-dropdown" align={end} className="dropAppare">
+                  <div className="d-flex">
+                    <Nav.Link href="/" className="text-center px-3 customNavLink terzaIconaIn">
+                      <FontAwesomeIcon icon={faCommentDots} />
+                      <p className="m-0">Messaggistica</p>
+                    </Nav.Link>
+                    <Nav.Link href="/" className="text-center px-3 customNavLink secondaIconaIn">
+                      <FontAwesomeIcon icon={faBell} />
+                      <p className="m-0">Notifiche</p>
+                    </Nav.Link>
+                    <NavDropdown title="Tu" id="basic-nav-dropdown" align={end} className="primaIconaIn">
+                      <div>
+                        <Row className="mb-2">
+                          <Col xs={3}>
+                            {InfoProfilo && (
+                              <Link to="/profile/me">
+                                <img
+                                  style={{
+                                    width: "50px",
+                                    height: "50px",
+                                    marginLeft: "20px",
+                                    borderRadius: "50%",
+                                  }}
+                                  src={InfoProfilo.image}
+                                  alt=""
+                                />
+                              </Link>
+                            )}
+                          </Col>
+                          <Col xs={9}>
+                            <h6>
+                              {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
+                            </h6>
+                            <p>{InfoProfilo.bio}placeholder</p>
+                          </Col>
+                        </Row>
+
+                        <div className="text-center">
+                          <ButtonLink variant="outline-primary">Visualizza il tuo profilo</ButtonLink>
+                        </div>
+                      </div>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href="/">
+                        <h6>Account</h6>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="/">Prova Premium per 0 EUR</NavDropdown.Item>
+                      <NavDropdown.Item href="/">Impostazioni e privacy</NavDropdown.Item>
+                      <NavDropdown.Item href="/">Guida</NavDropdown.Item>
+                      <NavDropdown.Item href="/">Lingua</NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href="/">
+                        <h6>Gestisci</h6>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="/">Post e attività</NavDropdown.Item>
+                      <NavDropdown.Item href="/">Account per la pubblicazione di offerte</NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href="/">Esci</NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown.Item href="/" className="pe-0" onClick={handleShow}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="gray"
+                        className="bi bi-grid-3x3-gap-fill mt-1"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
+                      </svg>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/">
+                      <div className="premium2">
+                        <Link className="d-flex flex-column align-items-center">
+                          Prova Premium <p className="m-0">per 0 EUR</p>
+                        </Link>
+                      </div>
+                    </NavDropdown.Item>
+                  </div>
+                </NavDropdown>
+              </Nav>
             )}
           </InputGroup>
-          <Nav className="me-auto">
+          <Nav className="me-auto navBarlarga">
             <Nav.Link href="#home" className="text-center px-3 customNavLink">
               <FontAwesomeIcon icon={faHome} />
               <p className="m-0">Home</p>
@@ -120,7 +300,14 @@ function MyNavbar({ children }) {
               <FontAwesomeIcon icon={faBell} />
               <p className="m-0">Notifiche</p>
             </Nav.Link>
-            <div>
+            <div className="d-flex flex-column px-3 ">
+              {
+                <img
+                  src={InfoProfilo.image}
+                  alt=""
+                  style={{ width: "25px", height: "25px", borderRadius: "50%", marginTop: "3px" }}
+                />
+              }
               <NavDropdown title="Tu" id="basic-nav-dropdown" align={end} className="primaIconaVia">
                 <div>
                   <Row className="mb-2">

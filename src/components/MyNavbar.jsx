@@ -76,15 +76,12 @@ function MyNavbar({ children }) {
 
   const search = async () => {
     try {
-      let response = await fetch(
-        `https://strive-benchmark.herokuapp.com/api/jobs?category=writing&limit=10&q=${searchTerm}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      let response = await fetch(`https://strive-benchmark.herokuapp.com/api/jobs?category=${searchTerm}&limit=10`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       let data = await response.json();
       console.log("Lavori:", data);
       setSearchResults(data);
@@ -127,17 +124,13 @@ function MyNavbar({ children }) {
                   onChange={handleChange}
                 />
                 {showDropdown && (
-                  <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                      Risultati della ricerca
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      {searchResults.map((result) => (
-                        <Dropdown.Item key={result.company_name}>{result.title}</Dropdown.Item>
-                      ))}
-                    </Dropdown.Menu>
-                  </Dropdown>
+                  <div className="z-3 position-absolute bg-white" style={{ marginTop: "38px" }}>
+                    {searchResults.data.map((result) => (
+                      <Link className="d-block px-2" key={result.id}>
+                        {result.title}
+                      </Link>
+                    ))}
+                  </div>
                 )}
               </>
             ) : (
@@ -511,6 +504,7 @@ function MyNavbar({ children }) {
           </Nav>
         </Container>
       </Navbar>
+
       <Offcanvas show={show} onHide={handleClose} placement="end" className="customCanvas">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Per le Aziende</Offcanvas.Title>

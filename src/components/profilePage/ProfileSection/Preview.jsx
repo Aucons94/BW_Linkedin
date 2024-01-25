@@ -44,7 +44,10 @@ const Preview = () => {
 					className="border border-3 border-white"
 				/>
 				<div className="d-flex justify-content-between">
-					<h3>{profile.name ? profile.name : "no data name"}</h3>
+					<h3>
+						{profile.name ? profile.name : "no data name"}{" "}
+						{profile.surname ? profile.surname : "no data surname"}
+					</h3>
 					<ButtonLink className={"p-0"}>
 						<FontAwesomeIcon
 							className="text-secondary me-3 "
@@ -53,7 +56,7 @@ const Preview = () => {
 					</ButtonLink>
 				</div>
 				<p className="mb-1">
-					{profile.role ? profile.role : "no data role"}
+					{profile.title ? profile.title : "no data title"}
 				</p>
 				<p className="text-secondary ">
 					{profile.area ? profile.area : "no data area"}{" "}

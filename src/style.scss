@@ -41,7 +41,17 @@ body {
   line-height: 15px;
 }
 
-.footer-right p {
+.fjobs-down {
+  padding: 0;
+  text-decoration: none;
+  color: rgb(107, 107, 107);
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 10px;
+}
+
+.footer-right,
+.fjobs-down p {
   margin: 0;
 }
 

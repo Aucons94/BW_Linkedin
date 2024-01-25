@@ -76,7 +76,7 @@ function MyNavbar({ children }) {
 
   const search = async () => {
     try {
-      let response = await fetch(`https://strive-benchmark.herokuapp.com/api/jobs?category=${searchTerm}&limit=10`, {
+      let response = await fetch(`https://strive-benchmark.herokuapp.com/api/jobs?search=${searchTerm}&limit=5`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -126,7 +126,7 @@ function MyNavbar({ children }) {
                 {showDropdown && (
                   <div className="z-3 position-absolute bg-white" style={{ marginTop: "38px" }}>
                     {searchResults.data.map((result) => (
-                      <Link className="d-block px-2" key={result.id}>
+                      <Link className="d-block p-2 risultatiRicerca" key={result.id}>
                         {result.title}
                       </Link>
                     ))}

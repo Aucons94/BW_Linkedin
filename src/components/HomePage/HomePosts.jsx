@@ -1,12 +1,11 @@
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
-	addActionToModal,
+	closeModal,
 	deletePostsData,
+	formatModalToDelete,
 	getPostsData,
-	showModal,
-	textModal,
 } from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -19,20 +18,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ButtonLink from "../utility components/ButtonLink";
 import MyModal from "../utility components/MyModal";
-import { text } from "@fortawesome/fontawesome-svg-core";
 
 const HomePosts = () => {
 	const posts = useSelector((state) => state.postData.posts);
+	const isLoading = useSelector((state) => state.loading.loading);
 	const dispatch = useDispatch();
 	const sortedPosts = [...posts].sort(
 		(a, b) => new Date(b.createdAt) - new Date(a.createdAt)
 	);
+
 	function timeAgo(dateString) {
 		const currentDate = new Date();
 		const pastDate = new Date(dateString);
 		const timeDifference = currentDate - pastDate;
 		const minutes = Math.floor(timeDifference / (1000 * 60));
-
 		if (minutes < 1) {
 			return "Ora";
 		} else if (minutes === 1) {
@@ -48,23 +47,51 @@ const HomePosts = () => {
 		}
 	}
 
+	const setModalToDelete = (id) => {
+		// questa funzione viene passata ad ogni iconcina "X" di ogni post durante la mappatura
+		// fa in modo che ogni "X" abbia le informazioni da passare al modale per cancellare il post
+		// il dispatch cambia anche lo stato in "show" in true per mostrare il modale
+		dispatch(
+			formatModalToDelete(
+				"Conferma elimina",
+				"Vuoi eliminare il post?",
+				id
+			)
+		);
+	};
+
 	const handleDelete = (id) => {
-		// dispatch(textModal("Vuoi eliminare il post?"));
-		// dispatch(addActionToModal(deletePostsData(id)));
-		// dispatch(showModal());
+		//questa funzione viene passata tramite props "func" (in modo da essere riutilizzabile in altri contesti es: modifica invece di delete)
 		dispatch(deletePostsData(id));
+		dispatch(closeModal());
+	};
+
+	const handleGetPostData = () => {
+		dispatch(getPostsData());
 	};
 
 	useEffect(() => {
-		dispatch(getPostsData());
-		console.log("Post in ordine:", sortedPosts);
-	}, [posts]);
+		// eseguo la prima volta la fetch dei dati dei post
+		handleGetPostData();
+		// e poi imposto il timer, altrimenti al primo avvio aspetta tot tempo per fetchare
+		const intervalId = setInterval(() => {
+			handleGetPostData();
+		}, 30000);
+		// Pulisco l'intervallo quando il componente viene smontato per avitare che continui ogni tot tempo a fetchare anche quando renderizzo altri componenti
+		return () => clearInterval(intervalId);
+	}, []);
 
 	return (
 		<>
-			<MyModal />
-			<Button onClick={() => dispatch(showModal())}>show</Button>
-
+			{/* come props a mymodal passo la funzione che si esegue alla sua conferma */}
+			<MyModal func={handleDelete} />
+			{isLoading && (
+				<div className="d-flex my-5 justify-content-center">
+					<Spinner animation="border" role="status">
+						<span className="visually-hidden">Loading...</span>
+					</Spinner>
+				</div>
+			)}
 			{sortedPosts.map((post) => {
 				return (
 					<Card key={post._id} className="my-2 p-3 gap-3">
@@ -99,7 +126,7 @@ const HomePosts = () => {
 								</Button>
 								<Button
 									variant="link"
-									onClick={() => handleDelete(post._id)}>
+									onClick={() => setModalToDelete(post._id)}>
 									<FontAwesomeIcon
 										className="text-secondary"
 										icon={faXmark}

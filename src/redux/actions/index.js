@@ -1,17 +1,15 @@
 import { token } from "../../token";
+import { endLoading, startLoading } from "../reducers/loadingReducer";
 
 export const NAVBAR_INFO = "NAVBAR_INFO";
 export const GET_PROFILI = "GET_PROFILI";
 export const GET_EXPERIENCE = "GET_EXPERIENCE";
 export const SET_VALUE_POST = "SET_VALUE_POST";
 export const GET_POST = "GET_POST";
-export const SET_LOADING_TRUE = "SET_LOADING_TRUE";
-export const SET_LOADING_FALSE = "SET_LOADING_FALSE";
 export const SET_ERROR = "SET_ERROR";
 export const SHOW_MODAL = "SHOW_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
-export const TEXT_MODAL = "TEXT_MODAL";
-export const ADD_ACTION_TO_MODAL = "ADD_ACTION_TO_MODAL";
+export const FORMAT_MODAL_TO_DELETE = "FORMAT_MODAL_TO_DELETE";
 
 export const setNavbarInfo = (payload) => ({
 	type: NAVBAR_INFO,
@@ -41,9 +39,7 @@ export const getPosts = (payload) => ({
 export const getPostsData = () => {
 	return async (dispatch, getState) => {
 		try {
-			dispatch({
-				type: SET_LOADING_TRUE,
-			});
+			dispatch(startLoading());
 			// const query = getState().music.query;
 			const endpoint =
 				"https://striveschool-api.herokuapp.com/api/posts/";
@@ -59,9 +55,7 @@ export const getPostsData = () => {
 			}
 			const response = await resp.json();
 			dispatch(getPosts(response));
-			dispatch({
-				type: SET_LOADING_FALSE,
-			});
+			dispatch(endLoading());
 		} catch (error) {
 			dispatch({
 				type: SET_ERROR,
@@ -74,9 +68,7 @@ export const getPostsData = () => {
 export const createPostsData = () => {
 	return async (dispatch, getState) => {
 		try {
-			dispatch({
-				type: SET_LOADING_TRUE,
-			});
+			dispatch(startLoading());
 			const payload = getState().postData.createValue;
 			const endpoint =
 				"https://striveschool-api.herokuapp.com/api/posts/";
@@ -96,9 +88,7 @@ export const createPostsData = () => {
 			const response = await resp.json();
 			console.log(response);
 			// dispatch(getPosts(response));
-			dispatch({
-				type: SET_LOADING_FALSE,
-			});
+			dispatch(endLoading());
 		} catch (error) {
 			dispatch({
 				type: SET_ERROR,
@@ -111,9 +101,7 @@ export const createPostsData = () => {
 export const deletePostsData = (postId) => {
 	return async (dispatch, getState) => {
 		try {
-			dispatch({
-				type: SET_LOADING_TRUE,
-			});
+			dispatch(startLoading());
 			const endpoint = `https://striveschool-api.herokuapp.com/api/posts/${postId}`;
 			const resp = await fetch(endpoint, {
 				method: "DELETE",
@@ -124,10 +112,7 @@ export const deletePostsData = (postId) => {
 			});
 			if (resp.ok) {
 				console.log(resp);
-				// dispatch(getPosts(response));
-				dispatch({
-					type: SET_LOADING_FALSE,
-				});
+				dispatch(endLoading());
 			} else {
 				throw "Errore nella fetch";
 			}
@@ -148,22 +133,15 @@ export const closeModal = () => ({
 	type: CLOSE_MODAL,
 });
 
-export const textModal = (text) => ({
-	type: TEXT_MODAL,
-	payload: text,
-});
-
-export const addActionToModal = (actionToPass) => ({
-	type: ADD_ACTION_TO_MODAL,
-	payload: actionToPass,
+export const formatModalToDelete = (title, body, id) => ({
+	type: FORMAT_MODAL_TO_DELETE,
+	payload: { title, body, id },
 });
 
 export const getProfili = () => {
 	return async (dispatch, getState) => {
 		try {
-			dispatch({
-				type: SET_LOADING_TRUE,
-			});
+			dispatch(startLoading());
 			let response = await fetch(
 				"https://striveschool-api.herokuapp.com/api/profile/",
 				{

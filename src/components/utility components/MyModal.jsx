@@ -1,18 +1,21 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { closeModal, deletePostsData } from "../../redux/actions";
+import { closeModal } from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const MyModal = ({ func }) => {
+const MyModal = (props) => {
 	const modal = useSelector((state) => state.modalInfo);
 	const dispatch = useDispatch();
 	return (
 		<>
 			<Modal show={modal.show} centered>
 				<Modal.Header>
-					<Modal.Title>{modal.title}</Modal.Title>
+					<Modal.Title>
+						{modal.title}
+						{modal.idToDelete}
+					</Modal.Title>
 					<Button
 						variant="link"
 						onClick={() => dispatch(closeModal())}>
@@ -29,7 +32,12 @@ const MyModal = ({ func }) => {
 						onClick={() => dispatch(closeModal())}>
 						Close
 					</Button>
-					<Button variant="success" onClick={() => {}}>
+					<Button
+						variant="success"
+						// qua tramite props posso passare qualsiasi funzione che accetti un id, quindi ad esempio una fetch DELETE o una PUT, in questo modo posso riutilizzare il modal per diversi utilizzi
+						onClick={() => {
+							props.func(modal.id);
+						}}>
 						{modal.confirmText}
 					</Button>
 				</Modal.Footer>

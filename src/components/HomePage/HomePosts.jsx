@@ -55,7 +55,7 @@ const HomePosts = () => {
 
 	useEffect(() => {
 		dispatch(getPostsData());
-		console.log(sortedPosts);
+		console.log("Post in ordisne:", sortedPosts);
 	}, []);
 
 	return (
@@ -106,6 +106,7 @@ const HomePosts = () => {
 							</div>
 						</div>
 						<p className="">{post.text}</p>
+						{post.image && <img src={post.image} alt="postimage" />}
 						<hr />
 						<div className="d-flex justify-content-around flex-wrap">
 							<ButtonLink className={"text-secondary"}>

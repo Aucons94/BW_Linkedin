@@ -1,8 +1,8 @@
 import Card from "react-bootstrap/Card";
-import ButtonLink from "../utility/ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
+import ButtonLink from "../../utility components/ButtonLink";
 
 const Informazioni = () => {
 	const profile = useSelector((state) => state.profilo.info);

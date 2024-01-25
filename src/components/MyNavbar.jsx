@@ -110,15 +110,6 @@ function MyNavbar({ children }) {
             </InputGroup.Text>
             <Form.Control type="text" placeholder="Cerca" className="mr-sm-2 " />
           </InputGroup>
-          {showDropdown && (
-            <div className="z-3 position-absolute bg-white" style={{ marginTop: "38px" }}>
-              {searchResults.data.map((result) => (
-                <Link className="d-block p-2 risultatiRicerca" key={result.id}>
-                  {result.title}
-                </Link>
-              ))}
-            </div>
-          )}
           <InputGroup className="searchBar2">
             {showSearchBar ? (
               <>
@@ -132,6 +123,15 @@ function MyNavbar({ children }) {
                   value={searchTerm}
                   onChange={handleChange}
                 />
+                {showDropdown && (
+                  <div className="z-3 position-absolute bg-white" style={{ marginTop: "38px" }}>
+                    {searchResults.data.map((result) => (
+                      <Link className="d-block p-2 risultatiRicerca" key={result.id}>
+                        {result.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </>
             ) : (
               <Nav className="me-auto">

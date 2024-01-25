@@ -2,6 +2,7 @@ import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
+	addActionToModal,
 	deletePostsData,
 	getPostsData,
 	showModal,
@@ -48,15 +49,16 @@ const HomePosts = () => {
 	}
 
 	const handleDelete = (id) => {
-		dispatch(textModal("Vuoi eliminare il post?"));
-		dispatch(showModal());
-		// dispatch(deletePostsData(id));
+		// dispatch(textModal("Vuoi eliminare il post?"));
+		// dispatch(addActionToModal(deletePostsData(id)));
+		// dispatch(showModal());
+		dispatch(deletePostsData(id));
 	};
 
 	useEffect(() => {
 		dispatch(getPostsData());
-		console.log("Post in ordisne:", sortedPosts);
-	}, []);
+		console.log("Post in ordine:", sortedPosts);
+	}, [posts]);
 
 	return (
 		<>

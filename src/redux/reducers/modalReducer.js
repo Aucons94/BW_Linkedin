@@ -1,10 +1,17 @@
-import { CLOSE_MODAL, SHOW_MODAL, TEXT_MODAL } from "../actions";
+import {
+	ADD_ACTION_TO_MODAL,
+	CLOSE_MODAL,
+	FUNCTION_MODAL,
+	SHOW_MODAL,
+	TEXT_MODAL,
+} from "../actions";
 
 const InitialState = {
 	show: false,
 	title: "",
 	body: "",
 	confirmText: "Conferma",
+	action: {},
 };
 
 export const modalReducer = (state = InitialState, action) => {
@@ -25,6 +32,11 @@ export const modalReducer = (state = InitialState, action) => {
 			return {
 				...state,
 				body: action.payload,
+			};
+		case ADD_ACTION_TO_MODAL:
+			return {
+				...state,
+				action: action.payload,
 			};
 		default:
 			return state;

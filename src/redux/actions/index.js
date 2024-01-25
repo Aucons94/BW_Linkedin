@@ -11,6 +11,7 @@ export const SET_ERROR = "SET_ERROR";
 export const SHOW_MODAL = "SHOW_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
 export const TEXT_MODAL = "TEXT_MODAL";
+export const ADD_ACTION_TO_MODAL = "ADD_ACTION_TO_MODAL";
 
 export const setNavbarInfo = (payload) => ({
 	type: NAVBAR_INFO,
@@ -151,6 +152,12 @@ export const textModal = (text) => ({
 	type: TEXT_MODAL,
 	payload: text,
 });
+
+export const addActionToModal = (actionToPass) => ({
+	type: ADD_ACTION_TO_MODAL,
+	payload: actionToPass,
+});
+
 export const getProfili = () => {
 	return async (dispatch, getState) => {
 		try {

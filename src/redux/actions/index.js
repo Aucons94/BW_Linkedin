@@ -54,7 +54,6 @@ export const getPostsData = () => {
 				throw "Errore nella fetch";
 			}
 			const response = await resp.json();
-			console.log(response);
 			dispatch(getPosts(response));
 			dispatch({
 				type: SET_LOADING_FALSE,
@@ -96,6 +95,38 @@ export const createPostsData = () => {
 			dispatch({
 				type: SET_LOADING_FALSE,
 			});
+		} catch (error) {
+			dispatch({
+				type: SET_ERROR,
+				payload: error,
+			});
+		}
+	};
+};
+
+export const deletePostsData = (postId) => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: SET_LOADING_TRUE,
+			});
+			const endpoint = `https://striveschool-api.herokuapp.com/api/posts/${postId}`;
+			const resp = await fetch(endpoint, {
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: token,
+				},
+			});
+			if (resp.ok) {
+				console.log(resp);
+				// dispatch(getPosts(response));
+				dispatch({
+					type: SET_LOADING_FALSE,
+				});
+			} else {
+				throw "Errore nella fetch";
+			}
 		} catch (error) {
 			dispatch({
 				type: SET_ERROR,

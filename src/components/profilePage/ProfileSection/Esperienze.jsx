@@ -1,11 +1,11 @@
 import Card from "react-bootstrap/Card";
-import ButtonLink from "../utility/ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setExperience } from "../../../redux/actions";
 import { useEffect } from "react";
+import ButtonLink from "../../utility components/ButtonLink";
 
 const Esperienze = (userId) => {
 	const dispatch = useDispatch();

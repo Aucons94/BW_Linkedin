@@ -1,18 +1,12 @@
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import ButtonLink from "../utility/ButtonLink";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faArrowRight,
-	faChartBar,
 	faEye,
-	faPencil,
 	faSatelliteDish,
-	faSearch,
 	faUserFriends,
 } from "@fortawesome/free-solid-svg-icons";
-import { Col, Container, Row } from "react-bootstrap";
+import ButtonLink from "../../utility components/ButtonLink";
 
 const Risorse = () => {
 	return (

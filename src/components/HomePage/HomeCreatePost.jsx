@@ -2,13 +2,12 @@ import {
 	faCalendarDay,
 	faImage,
 	faNewspaper,
-	faPencil,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Card, Form } from "react-bootstrap";
+import { Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createPostsData, setValuePost } from "../../redux/actions";
-import ButtonLink from "../profilePage/utility/ButtonLink";
+import ButtonLink from "../utility components/ButtonLink";
 
 const HomeCreatePost = () => {
 	const profile = useSelector((state) => state.profilo.info);

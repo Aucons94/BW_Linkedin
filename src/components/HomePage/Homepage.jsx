@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import HomeCreatePost from "./HomeSearch";
+import HomeCreatePost from "./HomeCreatePost";
 import HomePosts from "./HomePosts";
 import HomeSidebarLeft from "./HomeSidebarLeft";
 

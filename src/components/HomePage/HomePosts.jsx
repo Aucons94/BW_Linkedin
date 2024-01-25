@@ -1,8 +1,8 @@
 import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { token } from "../../token";
+
 import { useEffect } from "react";
-import { getPosts, getPostsData } from "../../redux/actions";
+import { deletePostsData, getPostsData } from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faComment,
@@ -12,20 +12,15 @@ import {
 	faThumbsUp,
 	faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import ButtonLink from "../profilePage/utility/ButtonLink";
+import ButtonLink from "../utility components/ButtonLink";
 
 const HomePosts = () => {
 	const posts = useSelector((state) => state.postData.posts);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(getPostsData());
-	}, []);
-
 	const sortedPosts = [...posts].sort(
 		(a, b) => new Date(b.createdAt) - new Date(a.createdAt)
 	);
-
 	function timeAgo(dateString) {
 		const currentDate = new Date();
 		const pastDate = new Date(dateString);
@@ -48,6 +43,15 @@ const HomePosts = () => {
 		}
 	}
 
+	const handleDelete = (id) => {
+		dispatch(deletePostsData(id));
+	};
+
+	useEffect(() => {
+		dispatch(getPostsData());
+		console.log(sortedPosts);
+	}, []);
+
 	return (
 		<>
 			{sortedPosts.map((post) => {
@@ -69,22 +73,33 @@ const HomePosts = () => {
 							/>
 							<div className="ms-3">
 								<h5 className="m-0">
-									{post.user.name} {post.user.surname}
+									{post.user.name} {post.user.surname}{" "}
+									{/* {post._id} */}
 								</h5>
 								<p className="m-0">{post.user.title}</p>
 								<p>{timeAgo(post.createdAt)}</p>
 							</div>
-							<div className="ms-auto fs-4 text-secondary">
-								<FontAwesomeIcon
-									className="me-3"
-									icon={faEllipsis}
-								/>
-								<FontAwesomeIcon icon={faXmark} />
+							<div className="ms-auto text-secondary">
+								<Button variant="link">
+									<FontAwesomeIcon
+										className="text-secondary"
+										icon={faEllipsis}
+									/>
+								</Button>
+								<Button
+									id="ciao"
+									variant="link"
+									onClick={() => handleDelete(post._id)}>
+									<FontAwesomeIcon
+										className="text-secondary"
+										icon={faXmark}
+									/>
+								</Button>
 							</div>
 						</div>
 						<p className="">{post.text}</p>
 						<hr />
-						<div className="d-flex justify-content-around">
+						<div className="d-flex justify-content-around flex-wrap">
 							<ButtonLink className={"text-secondary"}>
 								<FontAwesomeIcon icon={faThumbsUp} />
 								<span className="ms-2">Consiglia</span>

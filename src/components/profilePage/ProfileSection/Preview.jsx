@@ -1,10 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import ButtonLink from "../utility/ButtonLink";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
+import ButtonLink from "../../utility components/ButtonLink";
 
 const Preview = () => {
 	const profile = useSelector((state) => state.profilo.info);

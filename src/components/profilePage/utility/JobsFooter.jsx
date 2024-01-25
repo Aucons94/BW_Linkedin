@@ -1,11 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap";
 import logo from "../../../media/LinkedinLogo.png";
-import ButtonLink from "./ButtonLink";
+import ButtonLink from "../../utility components/ButtonLink";
 
 const JobsFooter = () => {
   return (
     <Container>
-      <Row className="row-cols-sm-1 row-cols-xl-2">
+      <Row className="row-cols-sm-1 row-cols-xl-2 mt-3">
         <Col>
           <ButtonLink className="footer-small">
             <span>Informazioni</span>
@@ -30,7 +30,7 @@ const JobsFooter = () => {
         </Col>
       </Row>
       <Row className="row-cols-lg-1 d-sm-none d-lg-block">
-        <Col className="text-xl-center">
+        <Col className="text-xl-center ps-xl-0">
           <ButtonLink className="footer-small">
             <span>Opzioni per gli annunci pubblicitari</span>
           </ButtonLink>
@@ -42,14 +42,14 @@ const JobsFooter = () => {
             <span>Pubblicità</span>
           </ButtonLink>
         </Col>
-        <Col className="pe-0">
+        <Col>
           <ButtonLink className="footer-small">
             <span>Servizi alle aziende</span>
           </ButtonLink>
         </Col>
       </Row>
       <Row className="row-cols-sm-1 row-cols-xl-2">
-        <Col>
+        <Col className="pe-0">
           <ButtonLink className="footer-small">
             <span>Scarica l'app LinkedIn</span>
           </ButtonLink>
@@ -61,7 +61,7 @@ const JobsFooter = () => {
         </Col>
       </Row>
 
-      <p className="fjobs-down">
+      <p className="fjobs-down mt-3">
         <img src={logo} alt="LinkedIn logo" height={35} className="me-2" />
         LinkedIn Corporation © 2024
       </p>

@@ -3,9 +3,18 @@
 
 body {
   background-color: #f4f2ee;
+  background-color: #f4f2ee;
 }
 
 #visualizzaprofilo {
+  background-color: white;
+  color: #0a66c2;
+  border-radius: 20px;
+  border: 1px solid #0a66c2;
+  font-size: 12px;
+  width: 200px;
+  text-align: center;
+  height: 25px;
   background-color: white;
   color: #0a66c2;
   border-radius: 20px;
@@ -21,9 +30,15 @@ body {
   padding: 0;
   text-decoration: none;
   color: grey;
+  font-size: 0.7rem;
+  font-weight: normal;
+  padding: 0;
+  text-decoration: none;
+  color: grey;
 }
 
 .footer-small p {
+  margin: 0;
   margin: 0;
 }
 
@@ -33,6 +48,12 @@ body {
 }
 
 .footer-right {
+  padding: 0;
+  text-decoration: none;
+  color: rgb(107, 107, 107);
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 15px;
   padding: 0;
   text-decoration: none;
   color: rgb(107, 107, 107);
@@ -66,8 +87,13 @@ body {
   font-size: 12px;
   width: 100px;
   padding-top: 5px;
+  font-size: 12px;
+  width: 100px;
+  padding-top: 5px;
 }
 .premium2 {
+  font-size: 12px;
+  width: 60px;
   font-size: 12px;
   width: 60px;
 }
@@ -265,13 +291,13 @@ body.canvasOpen {
   padding: 0;
   font-size: 12px;
 }
-
 .homeSidebarHover:hover {
   text-decoration: underline;
   color: #0a66c2;
 }
-/* .customnavDropdown {
-  padding: 0 !important;
-  font-size: 12px !important;
+.puntiDropdown {
+  background-color: inherit;
+  border: none;
+  border-radius: 0%;
+  color: inherit;
 }
- */

@@ -7,35 +7,16 @@ import pic1 from "../../media/Immagine1.png";
 import pic2 from "../../media/Immagine2.png";
 import pic3 from "../../media/Immagine3.png";
 import { useDispatch, useSelector } from "react-redux";
-import { setProfili } from "../../redux/actions";
-import { token } from "../../token";
+import { getProfili } from "../../redux/actions";
 
 const SidebarProfileRight = () => {
 	const profiles = useSelector((state) => state.multiProfili.profili);
 
 	const dispatch = useDispatch();
 
-	const getProfili = async () => {
-		try {
-			let response = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: token,
-				},
-			});
-			let data = await response.json();
-			dispatch(setProfili(data));
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
 	useEffect(() => {
-		getProfili();
+		dispatch(getProfili());
 	}, []);
-
-	console.log("profile", profiles);
 
 	return (
 		<Container className="mt-4 d-none d-md-block">
@@ -94,26 +75,7 @@ const SidebarProfileRight = () => {
 								</div>
 							</div>
 						))}
-					{/* <div className="d-flex mb-3 px-4">
-						<div className="me-2">
-							<img src="https://picsum.photos/40" alt="" className="rounded-5"></img>
-						</div>
-						<div>
-							<div>
-								<span>Nome Cognome</span>
-								<span> ∙ 3°+</span>
-							</div>
-							<div>
-								<span>Descrizione lavoro</span>
-							</div>
-							<div>
-								<Button variant="outline-secondary" className=" buttonHover mt-2">
-									<FontAwesomeIcon icon={faUserPlus} size="xs" className="me-1" />
-									Collegati
-								</Button>
-							</div>
-						</div>
-					</div> */}
+
 					<div>
 						<a
 							href="/"
@@ -159,26 +121,6 @@ const SidebarProfileRight = () => {
 							</div>
 						))}
 
-					{/* <div className="d-flex mb-3">
-						<div className="me-2">
-							<img src="https://picsum.photos/40" alt="" className="rounded-5"></img>
-						</div>
-						<div>
-							<div>
-								<span>Nome Cognome</span>
-								<span> ∙ 3°+</span>
-							</div>
-							<div>
-								<span>Descrizione lavoro</span>
-							</div>
-							<div>
-								<Button variant="outline-secondary" className="buttonHover mt-2">
-									<FontAwesomeIcon icon={faUserPlus} size="xs" className="me-1" />
-									Collegati
-								</Button>
-							</div>
-						</div>
-					</div> */}
 					<div>
 						<a
 							href="/"

@@ -41,8 +41,7 @@ export const getPostsData = () => {
 				type: SET_LOADING_TRUE,
 			});
 			// const query = getState().music.query;
-			const endpoint =
-				"https://striveschool-api.herokuapp.com/api/posts/";
+			const endpoint = "https://striveschool-api.herokuapp.com/api/posts/";
 			const resp = await fetch(endpoint, {
 				method: "GET",
 				headers: {
@@ -74,8 +73,7 @@ export const createPostsData = () => {
 				type: SET_LOADING_TRUE,
 			});
 			const payload = getState().postData.createValue;
-			const endpoint =
-				"https://striveschool-api.herokuapp.com/api/posts/";
+			const endpoint = "https://striveschool-api.herokuapp.com/api/posts/";
 			const resp = await fetch(endpoint, {
 				method: "POST",
 				headers: {
@@ -127,6 +125,33 @@ export const deletePostsData = (postId) => {
 			} else {
 				throw "Errore nella fetch";
 			}
+		} catch (error) {
+			dispatch({
+				type: SET_ERROR,
+				payload: error,
+			});
+		}
+	};
+};
+
+export const getProfili = () => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: SET_LOADING_TRUE,
+			});
+			let response = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: token,
+				},
+			});
+			if (!response.ok) {
+				throw "Errore nella fetch";
+			}
+			let data = await response.json();
+			dispatch(setProfili(data));
 		} catch (error) {
 			dispatch({
 				type: SET_ERROR,

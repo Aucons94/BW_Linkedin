@@ -134,7 +134,7 @@ function MyNavbar({ children }) {
 
                     <Dropdown.Menu>
                       {searchResults.map((result) => (
-                        <Dropdown.Item key={result.id}>{result.title}</Dropdown.Item>
+                        <Dropdown.Item key={result.company_name}>{result.title}</Dropdown.Item>
                       ))}
                     </Dropdown.Menu>
                   </Dropdown>

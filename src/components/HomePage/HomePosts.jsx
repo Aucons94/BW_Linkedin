@@ -1,8 +1,12 @@
 import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-
 import { useEffect } from "react";
-import { deletePostsData, getPostsData } from "../../redux/actions";
+import {
+	deletePostsData,
+	getPostsData,
+	showModal,
+	textModal,
+} from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faComment,
@@ -13,18 +17,18 @@ import {
 	faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import ButtonLink from "../utility components/ButtonLink";
+import MyModal from "../utility components/MyModal";
+import { text } from "@fortawesome/fontawesome-svg-core";
 
 const HomePosts = () => {
 	const posts = useSelector((state) => state.postData.posts);
 	const dispatch = useDispatch();
-
 	const sortedPosts = [...posts].sort(
 		(a, b) => new Date(b.createdAt) - new Date(a.createdAt)
 	);
 	function timeAgo(dateString) {
 		const currentDate = new Date();
 		const pastDate = new Date(dateString);
-
 		const timeDifference = currentDate - pastDate;
 		const minutes = Math.floor(timeDifference / (1000 * 60));
 
@@ -44,7 +48,9 @@ const HomePosts = () => {
 	}
 
 	const handleDelete = (id) => {
-		dispatch(deletePostsData(id));
+		dispatch(textModal("Vuoi eliminare il post?"));
+		dispatch(showModal());
+		// dispatch(deletePostsData(id));
 	};
 
 	useEffect(() => {
@@ -54,6 +60,9 @@ const HomePosts = () => {
 
 	return (
 		<>
+			<MyModal />
+			<Button onClick={() => dispatch(showModal())}>show</Button>
+
 			{sortedPosts.map((post) => {
 				return (
 					<Card key={post._id} className="my-2 p-3 gap-3">
@@ -87,7 +96,6 @@ const HomePosts = () => {
 									/>
 								</Button>
 								<Button
-									id="ciao"
 									variant="link"
 									onClick={() => handleDelete(post._id)}>
 									<FontAwesomeIcon

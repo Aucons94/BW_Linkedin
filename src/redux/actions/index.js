@@ -8,6 +8,9 @@ export const GET_POST = "GET_POST";
 export const SET_LOADING_TRUE = "SET_LOADING_TRUE";
 export const SET_LOADING_FALSE = "SET_LOADING_FALSE";
 export const SET_ERROR = "SET_ERROR";
+export const SHOW_MODAL = "SHOW_MODAL";
+export const CLOSE_MODAL = "CLOSE_MODAL";
+export const TEXT_MODAL = "TEXT_MODAL";
 
 export const setNavbarInfo = (payload) => ({
 	type: NAVBAR_INFO,
@@ -135,3 +138,16 @@ export const deletePostsData = (postId) => {
 		}
 	};
 };
+
+export const showModal = () => ({
+	type: SHOW_MODAL,
+});
+
+export const closeModal = () => ({
+	type: CLOSE_MODAL,
+});
+
+export const textModal = (text) => ({
+	type: TEXT_MODAL,
+	payload: text,
+});

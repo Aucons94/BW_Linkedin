@@ -1,8 +1,4 @@
-import {
-	faCalendarDay,
-	faImage,
-	faNewspaper,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDay, faImage, faNewspaper } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,31 +37,18 @@ const HomeCreatePost = () => {
 						}}
 					/>
 				</div>
-				<div className="d-flex px-4 flex-wrap justify-content-between">
-					<ButtonLink className="d-flex gap-3">
-						<FontAwesomeIcon
-							className="fs-3 text-primary pt-1"
-							icon={faImage}
-						/>
-						<p className="text-secondary fs-5">
-							Contenuti Multimediali
-						</p>
+				<div className="d-flex px-4 justify-content-between">
+					<ButtonLink className="d-flex gap-2">
+						<FontAwesomeIcon className=" text-primary pt-1" size="lg" icon={faImage} />
+						<p className="text-secondary">Contenuti Multimediali</p>
 					</ButtonLink>
-					<ButtonLink className="d-flex gap-3">
-						<FontAwesomeIcon
-							className="fs-3 text-warning pt-1"
-							icon={faCalendarDay}
-						/>
-						<p className="text-secondary fs-5">Evento</p>
+					<ButtonLink className="d-flex gap-2">
+						<FontAwesomeIcon className=" text-warning pt-1" icon={faCalendarDay} size="lg" />
+						<p className="text-secondary">Evento</p>
 					</ButtonLink>
-					<ButtonLink className="d-flex gap-3">
-						<FontAwesomeIcon
-							className="fs-3 text-danger pt-1"
-							icon={faNewspaper}
-						/>
-						<p className="text-secondary fs-5">
-							Scrivi un articolo
-						</p>
+					<ButtonLink className="d-flex gap-2">
+						<FontAwesomeIcon className=" text-danger pt-1" icon={faNewspaper} size="lg" />
+						<p className="text-secondary">Scrivi un articolo</p>
 					</ButtonLink>
 				</div>
 			</Card>

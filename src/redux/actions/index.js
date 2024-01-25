@@ -151,3 +151,32 @@ export const textModal = (text) => ({
 	type: TEXT_MODAL,
 	payload: text,
 });
+export const getProfili = () => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: SET_LOADING_TRUE,
+			});
+			let response = await fetch(
+				"https://striveschool-api.herokuapp.com/api/profile/",
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: token,
+					},
+				}
+			);
+			if (!response.ok) {
+				throw "Errore nella fetch";
+			}
+			let data = await response.json();
+			dispatch(setProfili(data));
+		} catch (error) {
+			dispatch({
+				type: SET_ERROR,
+				payload: error,
+			});
+		}
+	};
+};

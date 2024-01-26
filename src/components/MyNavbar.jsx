@@ -195,7 +195,7 @@ function MyNavbar({ children }) {
                   <FontAwesomeIcon icon={faBriefcase} />
                   <p className="m-0">Lavoro</p>
                 </Nav.Link>
-                <Nav.Link className="text-center px-3 customNavLink terzaIconaVia">
+                <Nav.Link className="text-center px-1 customNavLink terzaIconaVia">
                   <FontAwesomeIcon icon={faCommentDots} />
                   <p className="m-0">Messaggistica</p>
                 </Nav.Link>
@@ -388,7 +388,7 @@ function MyNavbar({ children }) {
               <FontAwesomeIcon icon={faBriefcase} />
               <p className="m-0">Lavoro</p>
             </Nav.Link>
-            <Nav.Link className="text-center px-3 customNavLink terzaIconaVia">
+            <Nav.Link className="text-center px-1 customNavLink terzaIconaVia">
               <FontAwesomeIcon icon={faCommentDots} />
               <p className="m-0">Messaggistica</p>
             </Nav.Link>

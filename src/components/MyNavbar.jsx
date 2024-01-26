@@ -183,7 +183,7 @@ function MyNavbar({ children }) {
                   <FontAwesomeIcon icon={faSearch} onClick={handleSearchButtonClick} />
                   <p className="m-0 cerca">Cerca</p>
                 </Nav.Link>
-                <Nav.Link href="#home" className="text-center px-3 customNavLink">
+                <Nav.Link href="/" className="text-center px-3 customNavLink">
                   <FontAwesomeIcon icon={faHome} />
                   <p className="m-0">Home</p>
                 </Nav.Link>
@@ -378,7 +378,7 @@ function MyNavbar({ children }) {
             )}
           </InputGroup>
           <Nav className="me-auto navBarlarga">
-            <Nav.Link href="#home" className="text-center px-3 customNavLink">
+            <Nav.Link href="/" className="text-center px-3 customNavLink">
               <FontAwesomeIcon icon={faHome} />
               <p className="m-0">Home</p>
             </Nav.Link>

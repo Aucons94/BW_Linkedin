@@ -3,8 +3,8 @@ import { BookmarkFill, Clipboard2Check, GearFill, ListUl, PencilSquare, PlayBtnF
 
 const JSidebarLeft = () => {
   return (
-    <>
-      <Card className="mt-3 sticky-top">
+    <div className="sticky-top mt-3">
+      <Card className="mt-3">
         <CardBody>
           <CardText>
             <Row className="row-cols-2">
@@ -68,7 +68,7 @@ const JSidebarLeft = () => {
           </Col>
         </Row>
       </Button>
-    </>
+    </div>
   );
 };
 

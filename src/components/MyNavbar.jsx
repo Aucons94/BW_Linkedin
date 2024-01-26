@@ -147,7 +147,7 @@ function MyNavbar({ children }) {
                   <FontAwesomeIcon icon={faUserFriends} />
                   <p className="m-0">Rete</p>
                 </Nav.Link>
-                <Nav.Link href="/" className="text-center px-3 customNavLink">
+                <Nav.Link as={Link} to="/JobsPage/" className="text-center px-3 customNavLink">
                   <FontAwesomeIcon icon={faBriefcase} />
                   <p className="m-0">Lavoro</p>
                 </Nav.Link>

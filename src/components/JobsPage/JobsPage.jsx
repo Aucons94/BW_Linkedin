@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
-import JobsFooter from "../profilePage/utility/JobsFooter";
+import JobsFooter from "./JobsFooter";
 import JSidebarRight from "./JSidebarLeft";
+import JobsSearch from "./JobsSearch";
 
 const JobsPage = () => {
   return (
@@ -10,7 +11,9 @@ const JobsPage = () => {
           <Col xs={12} md={3}>
             <JSidebarRight />
           </Col>
-          <Col xs={12} md={6}></Col>
+          <Col xs={12} md={6}>
+            <JobsSearch />
+          </Col>
           <Col xs={12} md={3}>
             <JobsFooter />
           </Col>

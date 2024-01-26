@@ -183,7 +183,7 @@ body {
 }
 .primaIconaIn {
   @media screen and (min-width: 432px) {
-    display: none;
+    display: none !important;
   }
 }
 .secondaIconaVia {

@@ -294,7 +294,7 @@ function MyNavbar({ children }) {
                       <Dropdown.Item className="text-center px-3 customNavLink secondaIconaIn">
                         <FontAwesomeIcon icon={faBell} />
                       </Dropdown.Item>
-                      <div className="d-flex flex-column px-3 primaIconaVia">
+                      <div className="d-flex flex-column px-3 primaIconaIn">
                         {
                           <img
                             src={InfoProfilo.image}

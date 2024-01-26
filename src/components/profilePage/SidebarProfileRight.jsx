@@ -8,6 +8,7 @@ import pic2 from "../../media/Immagine2.png";
 import pic3 from "../../media/Immagine3.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfili } from "../../redux/actions";
+import { Link } from "react-router-dom";
 
 const SidebarProfileRight = () => {
 	const profiles = useSelector((state) => state.multiProfili.profili);
@@ -43,7 +44,7 @@ const SidebarProfileRight = () => {
 						<span className="fw-bold">Altri profili consultati</span>
 					</div>
 					{profiles
-						.filter((params, index) => index < 5)
+						.filter((params, index) => index >= 20 && index < 25)
 						.map((profilo) => (
 							<div className="d-flex px-4 border-bottom" key={profilo._id}>
 								<div className="me-2 mt-3">
@@ -57,9 +58,11 @@ const SidebarProfileRight = () => {
 								</div>
 								<div className="mt-3">
 									<div>
-										<span style={{ cursor: "pointer" }} className="nomeProfilo">
-											{profilo.name} {profilo.surname}
-										</span>
+										<Link>
+											<span style={{ cursor: "pointer" }} className="nomeProfilo text-dark">
+												{profilo.name} {profilo.surname}
+											</span>
+										</Link>
 										{profilo.name.length + profilo.surname.length > 13 && <br />}
 										<span className="fw-light"> ∙ 3°+</span>
 									</div>
@@ -90,7 +93,7 @@ const SidebarProfileRight = () => {
 						<p className="fw-light lh-1">Dal tuo settore</p>
 					</div>
 					{profiles
-						.filter((params, index) => index < 5)
+						.filter((params, index) => index >= 5 && index < 10)
 						.map((profilo) => (
 							<div className="d-flex px-4 border-bottom" key={profilo._id}>
 								<div className="me-2 mt-3">
@@ -104,9 +107,11 @@ const SidebarProfileRight = () => {
 								</div>
 								<div className="mt-3">
 									<div>
-										<span style={{ cursor: "pointer" }} className="nomeProfilo">
-											{profilo.name} {profilo.surname}
-										</span>
+										<Link>
+											<span style={{ cursor: "pointer" }} className="nomeProfilo text-dark">
+												{profilo.name} {profilo.surname}
+											</span>
+										</Link>
 									</div>
 									<div>
 										<span style={{ cursor: "pointer" }}>{profilo.title}</span>

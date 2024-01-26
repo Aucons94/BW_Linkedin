@@ -76,6 +76,7 @@ body {
 .myNavbar {
   height: 50px;
   z-index: 2000;
+  font-size: 18px;
   p {
     font-size: 12px;
   }
@@ -192,7 +193,7 @@ body {
 }
 .primaIconaIn {
   @media screen and (min-width: 432px) {
-    display: none;
+    display: none !important;
   }
 }
 .secondaIconaVia {
@@ -283,6 +284,9 @@ body.canvasOpen {
 }
 .bordoGrigio {
   border: 1px solid #e8e8e8;
+}
+.bordoGrigio {
+  border-bottom: 1px solid #e8e8e8;
 }
 #basic-nav-dropdown {
   padding: 0;

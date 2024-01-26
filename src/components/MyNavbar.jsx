@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Card, Col, Dropdown, Form, InputGroup, NavLink, Offcanvas, Row } from "react-bootstrap";
+import { Card, Col, Dropdown, Form, InputGroup, Offcanvas, Row } from "react-bootstrap";
 import {
   faBriefcase,
   faHome,
@@ -55,10 +55,6 @@ function MyNavbar({ children }) {
   const handleSearchButtonClick = () => {
     setShowSearchBar(!showSearchBar);
   };
-  /*   const handleSearchIconClick = () => {
-    setShowSearchBar(false);
-  };
- */
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -100,7 +96,7 @@ function MyNavbar({ children }) {
   };
   return (
     <>
-      <Navbar className="p-0 myNavbar flex-nowrap border-bottom border-dark" bg="light" variant="light">
+      <Navbar className="p-0 myNavbar flex-nowrap border-bottom bordoGrigioNav sticky-top" bg="light" variant="light">
         <Container>
           <Link to={"/"}>
             <Navbar.Brand>
@@ -199,7 +195,7 @@ function MyNavbar({ children }) {
                   <FontAwesomeIcon icon={faBriefcase} />
                   <p className="m-0">Lavoro</p>
                 </Nav.Link>
-                <Nav.Link className="text-center px-3 customNavLink terzaIconaVia">
+                <Nav.Link className="text-center px-1 customNavLink terzaIconaVia">
                   <FontAwesomeIcon icon={faCommentDots} />
                   <p className="m-0">Messaggistica</p>
                 </Nav.Link>
@@ -227,6 +223,7 @@ function MyNavbar({ children }) {
                                   height: "50px",
                                   marginLeft: "20px",
                                   borderRadius: "50%",
+                                  marginTop: "10px",
                                 }}
                                 src={InfoProfilo.image}
                                 alt=""
@@ -238,7 +235,7 @@ function MyNavbar({ children }) {
                           <h6>
                             {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
                           </h6>
-                          <p>{InfoProfilo.bio}placeholder</p>
+                          <p className="pe-2">{InfoProfilo.bio}</p>
                         </Col>
                       </Row>
 
@@ -298,7 +295,7 @@ function MyNavbar({ children }) {
                       <Dropdown.Item className="text-center px-3 customNavLink secondaIconaIn">
                         <FontAwesomeIcon icon={faBell} />
                       </Dropdown.Item>
-                      <div className="d-flex flex-column px-3 primaIconaVia">
+                      <div className="d-flex flex-column px-3 primaIconaIn">
                         {
                           <img
                             src={InfoProfilo.image}
@@ -318,6 +315,7 @@ function MyNavbar({ children }) {
                                         height: "50px",
                                         marginLeft: "20px",
                                         borderRadius: "50%",
+                                        marginTop: "10px",
                                       }}
                                       src={InfoProfilo.image}
                                       alt=""
@@ -329,7 +327,7 @@ function MyNavbar({ children }) {
                                 <h6>
                                   {InfoProfilo.name} &nbsp;{InfoProfilo.surname}
                                 </h6>
-                                <p>{InfoProfilo.bio}</p>
+                                <p className="pe-2">{InfoProfilo.bio}</p>
                               </Col>
                             </Row>
                             <div className="text-center">
@@ -392,7 +390,7 @@ function MyNavbar({ children }) {
               <FontAwesomeIcon icon={faBriefcase} />
               <p className="m-0">Lavoro</p>
             </Nav.Link>
-            <Nav.Link className="text-center px-3 customNavLink terzaIconaVia">
+            <Nav.Link className="text-center px-1 customNavLink terzaIconaVia">
               <FontAwesomeIcon icon={faCommentDots} />
               <p className="m-0">Messaggistica</p>
             </Nav.Link>
@@ -420,6 +418,7 @@ function MyNavbar({ children }) {
                               height: "50px",
                               marginLeft: "20px",
                               borderRadius: "50%",
+                              marginTop: "10px",
                             }}
                             src={InfoProfilo.image}
                             alt=""
@@ -431,7 +430,7 @@ function MyNavbar({ children }) {
                       <h6>
                         {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
                       </h6>
-                      <p>{InfoProfilo.bio}placeholder</p>
+                      <p className="pe-2">{InfoProfilo.bio}</p>
                     </Col>
                   </Row>
                   <div className="text-center">
@@ -500,6 +499,7 @@ function MyNavbar({ children }) {
                                 height: "50px",
                                 marginLeft: "20px",
                                 borderRadius: "50%",
+                                marginTop: "10px",
                               }}
                               src={InfoProfilo.image}
                               alt=""
@@ -511,7 +511,7 @@ function MyNavbar({ children }) {
                         <h6>
                           {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
                         </h6>
-                        <p>{InfoProfilo.bio}placeholder</p>
+                        <p className="pe-2">{InfoProfilo.bio}</p>
                       </Col>
                     </Row>
                     <div className="text-center">

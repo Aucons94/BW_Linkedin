@@ -165,3 +165,44 @@ export const getProfili = () => {
 		}
 	};
 };
+
+export const editProfile = () => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch(startLoading());
+			const payload = getState().profilo.info;
+			const endpoint =
+				"https://striveschool-api.herokuapp.com/api/profile/";
+			const resp = await fetch(endpoint, {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: token,
+				},
+				body: JSON.stringify({
+					// _id: "",
+					// name: "",
+					// surname: "",
+					// email: "",
+					// username: "",
+					// title: "",
+					// bio: "",
+					// area: "",
+					image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkMxdAhyChD3MZ-hApJrhizOa6k_QiThzlkVqq47bdwRTimZ7euGxSDpeu-CQOE9sqIc0&usqp=CAU",
+				}),
+			});
+			if (!resp.ok) {
+				throw "Errore nella fetch";
+			}
+			const response = await resp.json();
+			console.log(response);
+			// dispatch(getPosts(response));
+			dispatch(endLoading());
+		} catch (error) {
+			dispatch({
+				type: SET_ERROR,
+				payload: error,
+			});
+		}
+	};
+};

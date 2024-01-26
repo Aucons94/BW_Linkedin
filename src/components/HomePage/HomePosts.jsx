@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import {
 	closeModal,
 	deletePostsData,
+	editProfile,
 	formatModalToDelete,
 	getPostsData,
 } from "../../redux/actions";
@@ -92,70 +93,80 @@ const HomePosts = () => {
 					</Spinner>
 				</div>
 			)}
-			{sortedPosts.map((post) => {
+			{sortedPosts.map((post, index) => {
 				return (
-					<Card key={post._id} className="my-2 p-3 gap-3">
-						<div className="d-flex">
-							<img
-								src={
-									post.user.image
-										? post.user.image
-										: "https://m.media-amazon.com/images/I/51zf0DXxT-L._AC_UF1000,1000_QL80_.jpg"
-								}
-								alt="profilo"
-								style={{
-									width: "70px",
-									height: "70px",
-									borderRadius: "50%",
-								}}
-							/>
-							<div className="ms-3">
-								<h5 className="m-0">
-									{post.user.name} {post.user.surname}{" "}
-									{/* {post._id} */}
-								</h5>
-								<p className="m-0">{post.user.title}</p>
-								<p>{timeAgo(post.createdAt)}</p>
-							</div>
-							<div className="ms-auto text-secondary">
-								<Button variant="link">
-									<FontAwesomeIcon
-										className="text-secondary"
-										icon={faEllipsis}
+					<>
+						{index < 20 && (
+							<Card key={post._id} className="my-2 p-3 gap-3">
+								<div className="d-flex">
+									<img
+										src={
+											post.user.image
+												? post.user.image
+												: "https://m.media-amazon.com/images/I/51zf0DXxT-L._AC_UF1000,1000_QL80_.jpg"
+										}
+										alt="profilo"
+										style={{
+											width: "70px",
+											height: "70px",
+											borderRadius: "50%",
+										}}
 									/>
-								</Button>
-								<Button
-									variant="link"
-									onClick={() => setModalToDelete(post._id)}>
-									<FontAwesomeIcon
-										className="text-secondary"
-										icon={faXmark}
-									/>
-								</Button>
-							</div>
-						</div>
-						<p className="">{post.text}</p>
-						{post.image && <img src={post.image} alt="postimage" />}
-						<hr />
-						<div className="d-flex justify-content-around flex-wrap">
-							<ButtonLink className={"text-secondary"}>
-								<FontAwesomeIcon icon={faThumbsUp} />
-								<span className="ms-2">Consiglia</span>
-							</ButtonLink>
-							<ButtonLink className={"text-secondary"}>
-								<FontAwesomeIcon icon={faComment} />
-								<span className="ms-2">Commenta</span>
-							</ButtonLink>
-							<ButtonLink className={"text-secondary"}>
-								<FontAwesomeIcon icon={faRetweet} />
-								<span className="ms-2">Diffondi il post</span>
-							</ButtonLink>
-							<ButtonLink className={"text-secondary"}>
-								<FontAwesomeIcon icon={faPaperPlane} />
-								<span className="ms-2">Invia</span>
-							</ButtonLink>
-						</div>
-					</Card>
+									<div className="ms-3">
+										<h5 className="m-0">
+											{post.user.name} {post.user.surname}{" "}
+											{/* {post._id} */}
+										</h5>
+										<p className="m-0">{post.user.title}</p>
+										<p>{timeAgo(post.createdAt)}</p>
+									</div>
+									<div className="ms-auto text-secondary">
+										<Button variant="link">
+											<FontAwesomeIcon
+												className="text-secondary"
+												icon={faEllipsis}
+											/>
+										</Button>
+										<Button
+											variant="link"
+											onClick={() =>
+												setModalToDelete(post._id)
+											}>
+											<FontAwesomeIcon
+												className="text-secondary"
+												icon={faXmark}
+											/>
+										</Button>
+									</div>
+								</div>
+								<p className="">{post.text}</p>
+								{post.image && (
+									<img src={post.image} alt="postimage" />
+								)}
+								<hr />
+								<div className="d-flex justify-content-around flex-wrap">
+									<ButtonLink className={"text-secondary"}>
+										<FontAwesomeIcon icon={faThumbsUp} />
+										<span className="ms-2">Consiglia</span>
+									</ButtonLink>
+									<ButtonLink className={"text-secondary"}>
+										<FontAwesomeIcon icon={faComment} />
+										<span className="ms-2">Commenta</span>
+									</ButtonLink>
+									<ButtonLink className={"text-secondary"}>
+										<FontAwesomeIcon icon={faRetweet} />
+										<span className="ms-2">
+											Diffondi il post
+										</span>
+									</ButtonLink>
+									<ButtonLink className={"text-secondary"}>
+										<FontAwesomeIcon icon={faPaperPlane} />
+										<span className="ms-2">Invia</span>
+									</ButtonLink>
+								</div>
+							</Card>
+						)}
+					</>
 				);
 			})}
 		</>

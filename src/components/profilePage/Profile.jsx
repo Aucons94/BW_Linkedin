@@ -6,6 +6,8 @@ import Risorse from "./ProfileSection/Risorse";
 import Informazioni from "./ProfileSection/Informazioni";
 import Esperienze from "./ProfileSection/Esperienze";
 import MyFooter from "./MyFooter";
+import FormEditProfile from "./ProfileSection/FormEditProfile";
+import MyModal from "../utility components/MyModal";
 
 const Profile = () => {
 	return (

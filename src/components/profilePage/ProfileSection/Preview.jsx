@@ -3,11 +3,20 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ButtonLink from "../../utility components/ButtonLink";
+import MyModal from "../../utility components/MyModal";
+import FormEditProfile from "./FormEditProfile";
+import { editProfile, showModal } from "../../../redux/actions";
 
 const Preview = () => {
 	const profile = useSelector((state) => state.profilo.info);
+	const dispatch = useDispatch();
+
+	const handleFormEditProfile = () => {
+		dispatch(editProfile());
+	};
+
 	return (
 		<Card className="position-relative mt-4">
 			<Button
@@ -52,7 +61,11 @@ const Preview = () => {
 						<FontAwesomeIcon
 							className="text-secondary me-3 "
 							icon={faPencil}
+							onClick={() => dispatch(showModal())}
 						/>
+						<MyModal func={handleFormEditProfile}>
+							<FormEditProfile />
+						</MyModal>
 					</ButtonLink>
 				</div>
 				<p className="mb-1">

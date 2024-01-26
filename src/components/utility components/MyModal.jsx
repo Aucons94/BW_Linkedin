@@ -25,7 +25,12 @@ const MyModal = (props) => {
 						/>
 					</Button>
 				</Modal.Header>
-				<Modal.Body>{modal.body}</Modal.Body>
+
+				<Modal.Body>
+					{modal.body}
+					{props.children}
+				</Modal.Body>
+
 				<Modal.Footer>
 					<Button
 						variant="secondary"

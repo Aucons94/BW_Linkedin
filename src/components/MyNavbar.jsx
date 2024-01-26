@@ -96,7 +96,7 @@ function MyNavbar({ children }) {
   };
   return (
     <>
-      <Navbar className="p-0 myNavbar flex-nowrap border-bottom border-dark" bg="light" variant="light">
+      <Navbar className="p-0 myNavbar flex-nowrap border-bottom bordoGrigioNav" bg="light" variant="light">
         <Container>
           <Link to={"/"}>
             <Navbar.Brand>

@@ -34,7 +34,7 @@ const SidebarProfileRight = () => {
 					<div className="d-flex justify-content-between">
 						<div>
 							<span className="fw-bold">Public profile & URL</span>
-							<p className="fw-light mt-1">inserire url profilo</p>
+							<p className="fw-light mt-1">http://localhost:3000/profile/me</p>
 						</div>
 						<FontAwesomeIcon icon={faPencil} style={{ color: "#404040", cursor: "pointer" }} />
 					</div>

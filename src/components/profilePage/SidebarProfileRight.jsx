@@ -43,7 +43,7 @@ const SidebarProfileRight = () => {
 						<span className="fw-bold">Altri profili consultati</span>
 					</div>
 					{profiles
-						.filter((params, index) => index < 5)
+						.filter((params, index) => index >= 20 && index < 25)
 						.map((profilo) => (
 							<div className="d-flex px-4 border-bottom" key={profilo._id}>
 								<div className="me-2 mt-3">
@@ -90,7 +90,7 @@ const SidebarProfileRight = () => {
 						<p className="fw-light lh-1">Dal tuo settore</p>
 					</div>
 					{profiles
-						.filter((params, index) => index < 5)
+						.filter((params, index) => index >= 5 && index < 10)
 						.map((profilo) => (
 							<div className="d-flex px-4 border-bottom" key={profilo._id}>
 								<div className="me-2 mt-3">

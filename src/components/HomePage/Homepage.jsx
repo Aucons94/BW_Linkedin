@@ -3,6 +3,7 @@ import HomeCreatePost from "./HomeCreatePost";
 import HomePosts from "./HomePosts";
 import HomeSidebarLeft from "./HomeSidebarLeft";
 import HomeSidebarRight from "./HomeSidebarRight";
+import JobsFooter from "../JobsPage/JobsFooter";
 
 const HomePage = () => {
 	return (
@@ -18,6 +19,7 @@ const HomePage = () => {
 					</Col>
 					<Col xs={12} md={3}>
 						<HomeSidebarRight />
+						<JobsFooter />
 					</Col>
 				</Row>
 			</Container>

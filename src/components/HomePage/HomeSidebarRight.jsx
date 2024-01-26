@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 
 const HomeSidebarRight = () => {
 	return (
-		<Card className="mt-4">
+		<Card className="my-4">
 			<div className="d-flex justify-content-between align-items-center mt-2 px-3">
 				<span className="fw-bold">LinkedIn Notizie</span>
 				<FontAwesomeIcon icon={faCircleInfo} />

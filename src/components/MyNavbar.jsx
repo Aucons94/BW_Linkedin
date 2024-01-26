@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Card, Col, Dropdown, Form, InputGroup, NavLink, Offcanvas, Row } from "react-bootstrap";
+import { Card, Col, Dropdown, Form, InputGroup, Offcanvas, Row } from "react-bootstrap";
 import {
   faBriefcase,
   faHome,

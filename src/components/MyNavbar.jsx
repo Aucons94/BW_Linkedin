@@ -223,6 +223,7 @@ function MyNavbar({ children }) {
                                   height: "50px",
                                   marginLeft: "20px",
                                   borderRadius: "50%",
+                                  marginTop: "10px",
                                 }}
                                 src={InfoProfilo.image}
                                 alt=""
@@ -234,7 +235,7 @@ function MyNavbar({ children }) {
                           <h6>
                             {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
                           </h6>
-                          <p>{InfoProfilo.bio}placeholder</p>
+                          <p className="pe-2">{InfoProfilo.bio}</p>
                         </Col>
                       </Row>
 
@@ -314,6 +315,7 @@ function MyNavbar({ children }) {
                                         height: "50px",
                                         marginLeft: "20px",
                                         borderRadius: "50%",
+                                        marginTop: "10px",
                                       }}
                                       src={InfoProfilo.image}
                                       alt=""
@@ -325,7 +327,7 @@ function MyNavbar({ children }) {
                                 <h6>
                                   {InfoProfilo.name} &nbsp;{InfoProfilo.surname}
                                 </h6>
-                                <p>{InfoProfilo.bio}</p>
+                                <p className="pe-2">{InfoProfilo.bio}</p>
                               </Col>
                             </Row>
                             <div className="text-center">
@@ -416,6 +418,7 @@ function MyNavbar({ children }) {
                               height: "50px",
                               marginLeft: "20px",
                               borderRadius: "50%",
+                              marginTop: "10px",
                             }}
                             src={InfoProfilo.image}
                             alt=""
@@ -427,7 +430,7 @@ function MyNavbar({ children }) {
                       <h6>
                         {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
                       </h6>
-                      <p>{InfoProfilo.bio}placeholder</p>
+                      <p className="pe-2">{InfoProfilo.bio}</p>
                     </Col>
                   </Row>
                   <div className="text-center">
@@ -496,6 +499,7 @@ function MyNavbar({ children }) {
                                 height: "50px",
                                 marginLeft: "20px",
                                 borderRadius: "50%",
+                                marginTop: "10px",
                               }}
                               src={InfoProfilo.image}
                               alt=""
@@ -507,7 +511,7 @@ function MyNavbar({ children }) {
                         <h6>
                           {InfoProfilo.name} <span> </span> {InfoProfilo.surname}
                         </h6>
-                        <p>{InfoProfilo.bio}placeholder</p>
+                        <p className="pe-2">{InfoProfilo.bio}</p>
                       </Col>
                     </Row>
                     <div className="text-center">

@@ -55,10 +55,10 @@ function MyNavbar({ children }) {
   const handleSearchButtonClick = () => {
     setShowSearchBar(!showSearchBar);
   };
-  const handleSearchIconClick = () => {
+  /*   const handleSearchIconClick = () => {
     setShowSearchBar(false);
   };
-
+ */
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -76,7 +76,7 @@ function MyNavbar({ children }) {
 
   const search = async () => {
     try {
-      let response = await fetch(`https://strive-benchmark.herokuapp.com/api/jobs?search=${searchTerm}&limit=5`, {
+      let response = await fetch(`https://strive-benchmark.herokuapp.com/api/jobs?search=${searchTerm}&limit=10`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,7 @@ function MyNavbar({ children }) {
             {showSearchBar ? (
               <>
                 <InputGroup.Text>
-                  <FontAwesomeIcon icon={faSearch} onClick={search} />
+                  <FontAwesomeIcon icon={faSearch} />
                 </InputGroup.Text>
                 <Form.Control
                   type="text"
@@ -122,15 +122,35 @@ function MyNavbar({ children }) {
                   className="mr-sm-2"
                   value={searchTerm}
                   onChange={handleChange}
+                  onKeyUp={search}
                 />
-                {showDropdown && (
-                  <div className="z-3 position-absolute bg-white" style={{ marginTop: "38px" }}>
+                {/*       {showDropdown && (
+                  <div className="z-3 position-absolute bg-white"  style={{ marginTop: "38px" }}>
                     {searchResults.data.map((result) => (
                       <Link className="d-block p-2 risultatiRicerca" key={result.id}>
-                        {result.title}
+                        {result.company_name},&ensp;{result.title}
                       </Link>
                     ))}
                   </div>
+                    )} */}
+                {showDropdown && (
+                  <Offcanvas
+                    show={showDropdown}
+                    onHide={handleClose}
+                    placement="top"
+                    style={{ marginTop: "50px", width: "60%", marginInline: "auto" }}
+                  >
+                    <Offcanvas.Header>
+                      <Offcanvas.Title>Risultati ricerca</Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                      {searchResults.data.map((result) => (
+                        <Link className="d-block p-2 risultatiRicerca" key={result.id}>
+                          {result.title}
+                        </Link>
+                      ))}
+                    </Offcanvas.Body>
+                  </Offcanvas>
                 )}
               </>
             ) : (
@@ -378,7 +398,6 @@ function MyNavbar({ children }) {
                       <p>{InfoProfilo.bio}placeholder</p>
                     </Col>
                   </Row>
-
                   <div className="text-center">
                     <ButtonLink to="/profile/me" variant="outline-primary">
                       Visualizza il tuo profilo
@@ -504,7 +523,6 @@ function MyNavbar({ children }) {
           </Nav>
         </Container>
       </Navbar>
-
       <Offcanvas show={show} onHide={handleClose} placement="end" className="customCanvas">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Per le Aziende</Offcanvas.Title>

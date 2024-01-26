@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
-import logo from "../../../media/LinkedinLogo.png";
-import ButtonLink from "../../utility components/ButtonLink";
+import logo from "../../media/LinkedinLogo.png";
+import ButtonLink from "../utility components/ButtonLink";
 
 const JobsFooter = () => {
   return (

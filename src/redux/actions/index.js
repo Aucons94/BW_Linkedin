@@ -182,8 +182,7 @@ export const editProfile = () => {
           // title: "",
           // bio: "",
           // area: "",
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkMxdAhyChD3MZ-hApJrhizOa6k_QiThzlkVqq47bdwRTimZ7euGxSDpeu-CQOE9sqIc0&usqp=CAU",
+          // image: "",
         }),
       });
       if (!resp.ok) {

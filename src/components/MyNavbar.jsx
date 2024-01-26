@@ -55,10 +55,6 @@ function MyNavbar({ children }) {
   const handleSearchButtonClick = () => {
     setShowSearchBar(!showSearchBar);
   };
-  /*   const handleSearchIconClick = () => {
-    setShowSearchBar(false);
-  };
- */
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
